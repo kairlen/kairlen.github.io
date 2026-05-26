@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Illustrations — Your Name</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── PAGE-SPECIFIC OVERRIDES ─────────────────────────────── */
+    body { cursor: none; }
+
+    /* ── PAGE HEADER ─────────────────────────────────────────── */
+    .page-header {
+      background: var(--green);
+      padding: 120px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 380px; height: 380px;
+      background: var(--orange); border-radius: 50%; opacity: .12;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute; bottom: -60px; left: -40px;
+      width: 240px; height: 240px;
+      background: var(--mauve); border-radius: 50%; opacity: .18;
+    }
+    .page-header .container { position: relative; z-index: 2; }
+    .page-header-label {
+      font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px; display: block;
+    }
+    .page-header h1 {
+      font-family: var(--font-title);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: .92; color: var(--cream);
+      letter-spacing: -.02em;
+    }
+    .page-header h1 em {
+      font-style: normal;
+      -webkit-text-stroke: 2px var(--orange);
+      color: transparent;
+    }
+    .page-header-desc {
+      margin-top: 24px;
+      font-size: .95rem; line-height: 1.75;
+      color: rgba(245,237,214,.6);
+      max-width: 420px;
+    }
+    .page-header-meta {
+      display: flex; gap: 32px; margin-top: 36px; flex-wrap: wrap;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-num  { font-family: var(--font-title); font-size: 2rem; color: var(--cream); line-height: 1; }
+    .meta-lbl  { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,237,214,.45); }
+
+    /* ── FILTER BAR ──────────────────────────────────────────── */
+    .filter-bar {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      position: sticky; top: 64px; z-index: 50;
+    }
+    .filter-inner {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-muted); margin-right: 6px;
+    }
+    .filter-btn {
+      padding: 7px 18px; border-radius: var(--r-pill);
+      border: 1.5px solid var(--border);
+      background: transparent; color: var(--ink-muted);
+      font-family: var(--font-body); font-size: .76rem;
+      letter-spacing: .06em; text-transform: uppercase;
+      cursor: pointer; transition: all .2s var(--ease);
+    }
+    .filter-btn:hover { border-color: var(--green); color: var(--green); }
+    .filter-btn.active {
+      background: var(--green); border-color: var(--green);
+      color: var(--cream);
+    }
+
+    /* ── MASONRY GALLERY ─────────────────────────────────────── */
+    #gallery-section { padding: 56px 0 100px; background: var(--cream); }
+
+    .masonry {
+      columns: 4;
+      column-gap: 16px;
+    }
+    @media (max-width: 1100px) { .masonry { columns: 3; } }
+    @media (max-width: 720px)  { .masonry { columns: 2; column-gap: 12px; } }
+    @media (max-width: 420px)  { .masonry { columns: 1; } }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--surface);
+      /* stagger reveal via inline style */
+    }
+    @media (max-width: 720px) { .masonry-item { margin-bottom: 12px; } }
+
+    .masonry-item img {
+      display: block; width: 100%; height: 100%;
+      transition: transform .5s var(--ease);
+      border-radius: 0;
+      /* real images: remove next line */
+      min-height: 180px; object-fit: cover; object-position: center;
+    }
+    /* Placeholder when no real img */
+    .masonry-item .img-placeholder {
+      width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 10px;
+      font-size: 2.2rem;
+      color: var(--ink-muted);
+      background: var(--surface);
+      /* height set via inline style per item */
+    }
+
+    /* Hover overlay */
+    .masonry-item .overlay {
+      position: absolute; inset: 0;
+      background: rgba(44,74,62,.0);
+      display: flex; align-items: flex-end;
+      padding: 20px;
+      transition: background .3s var(--ease);
+      border-radius: var(--r-lg);
+    }
+    .masonry-item:hover .overlay { background: rgba(44,74,62,.55); }
+    .overlay-title {
+      font-family: var(--font-title);
+      font-size: 1rem; color: var(--cream);
+      opacity: 0; transform: translateY(8px);
+      transition: opacity .3s, transform .3s;
+      line-height: 1.2;
+    }
+    .masonry-item:hover .overlay-title { opacity: 1; transform: translateY(0); }
+
+    /* Hidden state for filtering */
+    .masonry-item.hidden {
+      display: none;
+    }
+
+    /* ── LIGHTBOX ─────────────────────────────────────────────── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(26,26,18,0);                /* starts transparent */
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      display: flex; align-items: center; justify-content: center;
+      visibility: hidden;
+      padding: 24px;
+      /* background + blur fade in together */
+      transition:
+        background .38s var(--ease),
+        backdrop-filter .38s var(--ease),
+        visibility 0s linear .38s;
+    }
+    .lightbox.open {
+      background: rgba(26,26,18,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      visibility: visible;
+      transition:
+        background .38s var(--ease),
+        backdrop-filter .38s var(--ease),
+        visibility 0s linear 0s;
+    }
+
+    /* lb-inner slides UP on open, slides DOWN on close */
+    .lb-inner {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 0;
+      max-width: 1100px; width: 100%;
+      max-height: 90vh;
+      background: var(--cream);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,.5);
+      /* resting position: shifted down + slightly small */
+      transform: translateY(60px) scale(.97);
+      opacity: 0;
+      transition: transform .38s var(--ease), opacity .38s var(--ease);
+      will-change: transform, opacity;
+    }
+    .lightbox.open .lb-inner {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    /* drag-in-progress: disable transition so it tracks finger exactly */
+    .lb-inner.is-dragging { transition: none !important; }
+
+    /* Drag handle pill — only visible on mobile */
+    .lb-drag-handle {
+      display: none;
+      width: 36px; height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 0 auto 18px;
+      flex-shrink: 0;
+    }
+
+    /* Image side */
+    .lb-img-wrap {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--surface);
+      overflow: hidden;
+      min-height: 400px;
+    }
+    .lb-img-wrap img {
+      /* Ensure the image always fits its container both by width and height */
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 0;
+      display: block; margin: 0 auto;
+    }
+    .lb-img-wrap .img-placeholder {
+      width: 100%; height: 100%; min-height: 400px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+      font-size: 5rem; color: var(--ink-muted);
+    }
+
+    /* Nav arrows */
+    .lb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(245,237,214,.9); border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; color: var(--ink);
+      transition: background .2s, transform .2s;
+      z-index: 2;
+    }
+    .lb-arrow:hover { background: var(--orange); color: var(--cream); transform: translateY(-50%) scale(1.08); }
+    .lb-prev { left: 14px; }
+    .lb-next { right: 14px; }
+
+    /* Info panel */
+    .lb-info {
+      display: flex; flex-direction: column;
+      padding: 40px 32px;
+      border-left: 1px solid var(--border);
+      overflow-y: auto;
+    }
+    .lb-close {
+      align-self: flex-end;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid var(--border); background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1rem; color: var(--ink-muted);
+      transition: background .2s, color .2s;
+      margin-bottom: 32px;
+    }
+    .lb-close:hover { background: var(--green); color: var(--cream); border-color: var(--green); }
+
+    .lb-counter {
+      font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    .lb-title {
+      font-family: var(--font-title);
+      font-size: 1.8rem; line-height: 1.1;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .lb-medium {
+      font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-muted); margin-bottom: 20px;
+    }
+    .lb-caption {
+      font-size: .9rem; line-height: 1.8; color: var(--ink-muted);
+      margin-bottom: 28px; flex: 1;
+    }
+    .lb-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+    .lb-tag {
+      padding: 5px 14px; border-radius: var(--r-pill);
+      border: 1.5px solid var(--border);
+      font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    /* Progress bar */
+    .lb-progress {
+      height: 2px; background: var(--border);
+      margin-top: 24px; border-radius: 2px; overflow: hidden;
+    }
+    .lb-progress-fill {
+      height: 100%; background: var(--orange);
+      transition: width .3s var(--ease);
+    }
+
+    /* Mobile lightbox stacks vertically, slides up from bottom */
+    @media (max-width: 720px) {
+      .lightbox {
+        padding: 0;
+        align-items: flex-end;   /* panel anchors to bottom edge */
+      }
+      .lb-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        max-height: 95svh;
+        width: 100%;
+        /* on mobile: slide in from below instead of scale */
+        border-radius: var(--r-xl) var(--r-xl) 0 0;
+        transform: translateY(100%);   /* starts off-screen below */
+        opacity: 1;                    /* no fade, just translate */
+      }
+      .lightbox.open .lb-inner {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .lb-drag-handle { display: flex; }
+      .lb-img-wrap { min-height: 50vw; max-height: 58svh; }
+      .lb-info {
+        padding: 8px 24px 36px;   /* top padding reduced — handle takes space */
+        border-left: none;
+        border-top: 1px solid var(--border);
+        max-height: 42svh;
+        overflow-y: auto;
+      }
+      .lb-close { margin-bottom: 12px; }
+      .lb-title { font-size: 1.35rem; }
+      .lb-arrow { display: none; }   /* arrows hidden; use swipe */
+
+      /* Swipe hint */
+      .swipe-hint {
+        display: flex; align-items: center; gap: 8px;
+        font-size: .66rem; letter-spacing: .1em; text-transform: uppercase;
+        color: var(--ink-muted); margin-bottom: 14px;
+      }
+      .swipe-hint::before { content: '← swipe →'; font-size: .85rem; }
+    }
+    @media (min-width: 721px) {
+      .swipe-hint { display: none; }
+    }
+
+    /* ── EMPTY STATE ─────────────────────────────────────────── */
+    .empty-state {
+      text-align: center; padding: 80px 32px;
+      display: none;
+    }
+    .empty-state.show { display: block; }
+    .empty-state p { color: var(--ink-muted); font-size: .95rem; }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ── NAV (shared) ──────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">KZ.</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="illustrations.html" style="color:var(--cream);">Illustrations</a></li>
+      <li><a href="index.html#contact" class="nav-cta">Get in touch!</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about"   class="mob-link">About</a>
+    <a href="index.html#work"    class="mob-link">Work</a>
+    <a href="illustrations.html" class="mob-link">Illustrations</a>
+    <div class="mob-divider"></div>
+    <a href="index.html#contact" class="mob-link mob-cta">Get in touch! ✦</a>
+  </div>
+
+  <!-- ── PAGE HEADER ───────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header-label">Creative Work</span>
+      <h1>Illus<em>trations</em></h1>
+      <!-- CONFIG: Edit description -->
+      <p class="page-header-desc">
+        A collection of personal illustration work — exploring color, texture,
+        and the spaces between observation and imagination.
+      </p>
+      <div class="page-header-meta">
+        <div class="meta-item">
+          <!-- CONFIG: Update count -->
+          <span class="meta-num" id="totalCount">0</span>
+          <span class="meta-lbl">Works</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-num">2026</span>
+          <span class="meta-lbl">Latest</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── FILTER BAR ────────────────────────────────────────── -->
+  <div class="filter-bar">
+    <div class="container">
+      <div class="filter-inner">
+        <span class="filter-label">Filter</span>
+        <!-- CONFIG: Edit or add filter categories to match your work -->
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="digital">Digital</button>
+        <button class="filter-btn" data-filter="traditional">Traditional</button>
+        <button class="filter-btn" data-filter="character">Character</button>
+        <button class="filter-btn" data-filter="landscape">Landscape</button>
+        <!-- <button class="filter-btn" data-filter="abstract">Abstract</button> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MASONRY GALLERY ───────────────────────────────────── -->
+  <section id="gallery-section">
+    <div class="container">
+
+      <div class="masonry" id="masonryGrid">
+
+        <!--
+          CONFIG: How to add your illustrations
+          ─────────────────────────────────────
+          Copy one .masonry-item block below and edit:
+            data-category  : matches a filter-btn data-filter value
+            data-title     : shown in lightbox title
+            data-medium    : e.g. "Digital · Procreate"
+            data-caption   : your description of the piece
+            data-tags      : comma-separated tags shown as pills
+
+          For real images:
+            Replace the .img-placeholder div with:
+            <img src="images/illustrations/your-file.jpg" alt="Title">
+          The masonry handles any aspect ratio automatically.
+        -->
+
+
+        <div id="el-gato" class="masonry-item reveal reveal-delay-1" data-category="character"
+          data-title="El Gato" data-medium="Digital · Procreate"
+          data-caption="A stylized feline portrait that balances bold shape with subtle expression."
+          data-tags="illustration,digital">
+          <img src="images/Illustrations/El Gato.PNG" alt="El Gato">
+          <div class="overlay"><div class="overlay-title">El Gato</div></div>
+        </div>
+
+        <div id="shrimp-chips" class="masonry-item reveal reveal-delay-2" data-category="digital"
+          data-title="Shrimp Chips" data-medium="Digital · Procreate"
+          data-caption="Playful food illustration mixing texture, pattern, and a hint of nostalgia."
+          data-tags="digital,food,illustration">
+          <img src="images/Illustrations/shrimpChips.png" alt="Shrimp Chips">
+          <div class="overlay"><div class="overlay-title">Shrimp Chips</div></div>
+        </div>
+
+        <div id="walking-bear" class="masonry-item reveal" data-category="character"
+          data-title="Walking Bear" data-medium="Digital · Aseprite"
+          data-caption="A looping animation still that captures a gentle, wandering movement."
+          data-tags="character,animation,digital">
+          <img src="images/Illustrations/walkingBearAnimation.gif" alt="Walking Bear Animation">
+          <div class="overlay"><div class="overlay-title">Walking Bear</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-2" data-category="digital"
+          data-title="Deviled Eggs" data-medium="Digital · Procreate"
+          data-caption="A food illustration that leans into color, texture, and visual appetite."
+          data-tags="digital,food,illustration">
+          <img src="images/Illustrations/deviled_Eggs.png" alt="Deviled Eggs">
+          <div class="overlay"><div class="overlay-title">Deviled Eggs</div></div>
+        </div>
+
+        <div class="masonry-item reveal" data-category="character"
+          data-title="Disgusted Face" data-medium="Digital · Procreate"
+          data-caption="An expressive portrait study built around emotion and facial tension."
+          data-tags="character,expression,portrait,digital,pixel-art">
+          <img src="images/Illustrations/disgustedFace.jpg" alt="Disgusted Face">
+          <div class="overlay"><div class="overlay-title">Disgusted Face</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-1" data-category="character"
+          data-title="Lady Portrait" data-medium="Traditional · Pencil"
+          data-caption="A portrait study that explores soft lighting and quiet presence."
+          data-tags="character,portrait,figure,traditional">
+          <img src="images/Illustrations/lady.jpg" alt="Lady Portrait">
+          <div class="overlay"><div class="overlay-title">Lady Portrait</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-2" data-category="character"
+          data-title="Lady Study" data-medium="Digital · Procreate"
+          data-caption="An alternate take in the same portrait series, with a more graphic edge."
+          data-tags="character,portrait,study,digital">
+          <img src="images/Illustrations/lady.png" alt="Lady Study">
+          <div class="overlay"><div class="overlay-title">Lady Study</div></div>
+        </div>
+
+        <div class="masonry-item reveal" data-category="character"
+          data-title="Man Study 1" data-medium="Traditional · Pencil"
+          data-caption="A quick figure sketch that emphasizes gesture and form."
+          data-tags="character,figure,study,traditional">
+          <img src="images/Illustrations/man1.jpg" alt="Man Study 1">
+          <div class="overlay"><div class="overlay-title">Man Study 1</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-1" data-category="character"
+          data-title="Man Study 2" data-medium="Traditional · Pencil"
+          data-caption="Another portrait study from the same series, focusing on posture and mood."
+          data-tags="character,figure,study,traditional">
+          <img src="images/Illustrations/man2.jpg" alt="Man Study 2">
+          <div class="overlay"><div class="overlay-title">Man Study 2</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-2" data-category="character"
+          data-title="Man Study 3" data-medium="Traditional · Pencil"
+          data-caption="A final variation in the trio of quick male figure studies."
+          data-tags="character,figure,study,traditional">
+          <img src="images/Illustrations/man3.jpg" alt="Man Study 3">
+          <div class="overlay"><div class="overlay-title">Man Study 3</div></div>
+        </div>
+
+        <div class="masonry-item reveal" data-category="digital"
+          data-title="Mogoon 1" data-medium="Digital · Procreate"
+          data-caption="The first in a series of character illustrations with bold color and playful shape."
+          data-tags="digital,illustration,character">
+          <img src="images/Illustrations/mogoon1.jpg" alt="Mogoon 1">
+          <div class="overlay"><div class="overlay-title">Mogoon 1</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-1" data-category="digital"
+          data-title="Mogoon 2" data-medium="Digital · Procreate"
+          data-caption="A second variation exploring the same character universe with richer contrast."
+          data-tags="digital,illustration,character">
+          <img src="images/Illustrations/mogoon2.jpg" alt="Mogoon 2">
+          <div class="overlay"><div class="overlay-title">Mogoon 2</div></div>
+        </div>
+        
+        <div id="mogoon" class="masonry-item reveal reveal-delay-2" data-category="digital"
+          data-title="Mogoon 3" data-medium="Digital · Procreate"
+          data-caption="A third variation in the Mogoon series, showcasing a more detailed and intricate design."
+          data-tags="digital,illustration,character">
+          <img src="images/Illustrations/mogoon3.jpg" alt="Mogoon 3">
+          <div class="overlay"><div class="overlay-title">Mogoon 3</div></div>
+        </div>
+
+        <div id="skull" class="masonry-item reveal reveal-delay-1" data-category="traditional"
+          data-title="Skull Study" data-medium="Digital · Photoshop"
+          data-caption="A moody skull piece that leans into texture, shadow, and graphic composition."
+          data-tags="skull,study">
+          <img src="images/Illustrations/skull.jpg" alt="Skull Study">
+          <div class="overlay"><div class="overlay-title">Skull Study</div></div>
+        </div>
+
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <p>No illustrations in this category yet.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── LIGHTBOX ───────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lb-inner" id="lbInner">
+
+      <div class="lb-img-wrap" id="lbImgWrap">
+        <!-- image injected by JS -->
+        <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous">&#8592;</button>
+        <button class="lb-arrow lb-next" id="lbNext" aria-label="Next">&#8594;</button>
+      </div>
+
+      <div class="lb-info">
+        <div class="lb-drag-handle" id="lbDragHandle"></div>
+        <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
+        <div class="swipe-hint">Swipe to navigate</div>
+        <div class="lb-counter" id="lbCounter">1 / 12</div>
+        <h2 class="lb-title" id="lbTitle">Title</h2>
+        <p class="lb-medium" id="lbMedium">Medium</p>
+        <p class="lb-caption" id="lbCaption">Caption</p>
+        <div class="lb-tags" id="lbTags"></div>
+        <div class="lb-progress">
+          <div class="lb-progress-fill" id="lbProgressFill"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">KZ.</a>
+      <p class="footer-copy">&copy; 2025 Your Name. All illustrations original.</p>
+      <div class="footer-socials">
+        <!-- <a href="#" class="footer-soc" title="Instagram">ig</a> -->
+        <a href="https://www.linkedin.com/in/karenzhengg/" class="footer-soc" title="LinkedIn">in</a>
+        <a href="mailto:karenzheng15@gmail.com" class="footer-soc" title="Email">✉</a>
+        <!-- <a href="#" class="footer-soc" title="Behance">Be</a> -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  /* ── GALLERY & LIGHTBOX ──────────────────────────────────── */
+  (function () {
+
+    const grid       = document.getElementById('masonryGrid');
+    const lightbox   = document.getElementById('lightbox');
+    const lbImgWrap  = document.getElementById('lbImgWrap');
+    const lbTitle    = document.getElementById('lbTitle');
+    const lbMedium   = document.getElementById('lbMedium');
+    const lbCaption  = document.getElementById('lbCaption');
+    const lbCounter  = document.getElementById('lbCounter');
+    const lbTags     = document.getElementById('lbTags');
+    const lbFill     = document.getElementById('lbProgressFill');
+    const lbClose    = document.getElementById('lbClose');
+    const lbPrev     = document.getElementById('lbPrev');
+    const lbNext     = document.getElementById('lbNext');
+    const emptyState = document.getElementById('emptyState');
+    const totalCount = document.getElementById('totalCount');
+
+    // All items as array
+    let allItems = Array.from(grid.querySelectorAll('.masonry-item'));
+    let visibleItems = [...allItems];
+    let currentIndex = 0;
+
+    // Update count in header
+    totalCount.textContent = allItems.length;
+
+    // ── FILTER ──────────────────────────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const filter = this.dataset.filter;
+        allItems.forEach(item => {
+          const match = filter === 'all' || item.dataset.category === filter;
+          item.classList.toggle('hidden', !match);
+        });
+
+        visibleItems = allItems.filter(i => !i.classList.contains('hidden'));
+        emptyState.classList.toggle('show', visibleItems.length === 0);
+      });
+    });
+
+    // ── OPEN LIGHTBOX ────────────────────────────────────────
+    function openLightbox(item) {
+      currentIndex = visibleItems.indexOf(item);
+      renderLightbox();
+      // Clear any leftover drag inline styles from a previous close
+      lbInner.style.transform  = '';
+      lbInner.style.opacity    = '';
+      lightbox.style.background = '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function renderLightbox() {
+      const item = visibleItems[currentIndex];
+
+      // Image
+      const existingImg = lbImgWrap.querySelector('img, .img-placeholder');
+      if (existingImg) existingImg.remove();
+
+      const srcImg = item.querySelector('img');
+      if (srcImg) {
+        const img = document.createElement('img');
+        img.src = srcImg.src;
+        img.alt = item.dataset.title || '';
+        lbImgWrap.insertBefore(img, lbPrev);
+      } else {
+        // Clone placeholder for lightbox
+        const ph = item.querySelector('.img-placeholder').cloneNode(true);
+        ph.style.height = '100%';
+        ph.style.minHeight = '300px';
+        ph.style.fontSize = '5rem';
+        lbImgWrap.insertBefore(ph, lbPrev);
+      }
+
+      // Meta
+      lbTitle.textContent   = item.dataset.title   || '';
+      lbMedium.textContent  = item.dataset.medium  || '';
+      lbCaption.textContent = item.dataset.caption || '';
+      lbCounter.textContent = `${currentIndex + 1} / ${visibleItems.length}`;
+
+      // Tags
+      lbTags.innerHTML = '';
+      (item.dataset.tags || '').split(',').forEach(t => {
+        const span = document.createElement('span');
+        span.className = 'lb-tag';
+        span.textContent = t.trim();
+        lbTags.appendChild(span);
+      });
+
+      // Progress bar
+      lbFill.style.width = `${((currentIndex + 1) / visibleItems.length) * 100}%`;
+
+      // Arrows always fully visible — navigation loops infinitely
+      lbPrev.style.opacity = '1';
+      lbNext.style.opacity = '1';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + visibleItems.length) % visibleItems.length;
+      renderLightbox();
+    }
+
+    // Click items to open
+    allItems.forEach(item => {
+      item.addEventListener('click', () => openLightbox(item));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click',  e => { e.stopPropagation(); navigate(-1); });
+    lbNext.addEventListener('click',  e => { e.stopPropagation(); navigate(+1); });
+
+    // Close on backdrop click
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(+1);
+    });
+
+    // ── TOUCH — horizontal swipe (next/prev) + swipe-down to close ──
+    const lbInner   = document.getElementById('lbInner');
+    const DISMISS_Y = 90;   // px pulled down before release triggers close
+    const DISMISS_V = 0.4;  // velocity (px/ms) — fast flick also closes
+
+    let t0 = 0, touchStartX = 0, touchStartY = 0;
+    let dragStartY = 0, isDraggingDown = false, gestureDecided = false;
+
+    function applyDrag(dy) {
+      // Follow finger: translateY clamped to ≥ 0 (can't drag upward)
+      const pull = Math.max(0, dy);
+      // Slight resistance curve so it feels physical
+      const damped = pull < 120 ? pull : 120 + (pull - 120) * 0.35;
+      // Also scale and fade very subtly as it pulls away
+      const scale   = 1 - (damped / window.innerHeight) * 0.08;
+      const opacity = 1 - (damped / (window.innerHeight * 0.7));
+      lbInner.style.transform = `translateY(${damped}px) scale(${scale})`;
+      lbInner.style.opacity   = Math.max(0, opacity).toString();
+      // Dim backdrop proportionally
+      const bgAlpha = 0.92 * Math.max(0, opacity);
+      lightbox.style.background = `rgba(26,26,18,${bgAlpha})`;
+    }
+
+    function snapBack() {
+      lbInner.classList.remove('is-dragging');
+      lbInner.style.transform = '';
+      lbInner.style.opacity   = '';
+      lightbox.style.background = '';
+    }
+
+    function dismissDown() {
+      // Animate the rest of the way off-screen then close
+      lbInner.classList.remove('is-dragging');
+      lbInner.style.transition = 'transform .28s var(--ease), opacity .28s var(--ease)';
+      lbInner.style.transform  = 'translateY(105%)';
+      lbInner.style.opacity    = '0';
+      lightbox.style.transition = 'background .28s var(--ease)';
+      lightbox.style.background = 'rgba(26,26,18,0)';
+      setTimeout(() => {
+        closeLightbox();
+        // reset inline styles so next open animation is clean
+        lbInner.style.transition = '';
+        lbInner.style.transform  = '';
+        lbInner.style.opacity    = '';
+        lightbox.style.transition = '';
+        lightbox.style.background = '';
+      }, 290);
+    }
+
+    lightbox.addEventListener('touchstart', e => {
+      touchStartX  = e.touches[0].clientX;
+      touchStartY  = e.touches[0].clientY;
+      dragStartY   = touchStartY;
+      t0           = e.timeStamp;
+      isDraggingDown  = false;
+      gestureDecided  = false;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchmove', e => {
+      const dx = e.touches[0].clientX - touchStartX;
+      const dy = e.touches[0].clientY - touchStartY;
+
+      // Decide gesture direction on the first movement past a small threshold
+      if (!gestureDecided && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
+        gestureDecided = true;
+        if (dy > 0 && Math.abs(dy) >= Math.abs(dx)) {
+          isDraggingDown = true;
+          lbInner.classList.add('is-dragging');
+        }
+      }
+
+      if (isDraggingDown) {
+        e.preventDefault();  // stop page scroll while dragging lightbox
+        applyDrag(dy);
+      }
+    }, { passive: false });
+
+    lightbox.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      const dt = e.timeStamp - t0;
+      const vy = dy / dt;  // vertical velocity px/ms
+
+      if (isDraggingDown) {
+        isDraggingDown = false;
+        // Dismiss if pulled far enough OR fast enough
+        if (dy > DISMISS_Y || vy > DISMISS_V) {
+          dismissDown();
+        } else {
+          // Snap back with a spring feel
+          lbInner.style.transition = 'transform .3s var(--ease), opacity .3s var(--ease)';
+          lightbox.style.transition = 'background .3s var(--ease)';
+          snapBack();
+          setTimeout(() => {
+            lbInner.style.transition   = '';
+            lightbox.style.transition  = '';
+          }, 310);
+        }
+        return;
+      }
+
+      // Horizontal swipe: only fire if it's clearly horizontal
+      if (!gestureDecided) return;
+      if (Math.abs(dx) > 44 && Math.abs(dy) < Math.abs(dx) * 0.6) {
+        navigate(dx < 0 ? +1 : -1);
+      }
+    }, { passive: true });
+
+    // ── SCROLL REVEAL (items stagger in) ────────────────────
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    allItems.forEach((item, i) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = `opacity .5s ease ${(i % 4) * 80}ms, transform .5s ease ${(i % 4) * 80}ms`;
+      obs.observe(item);
+    });
+
+    // If page was opened with a hash (e.g. Illustrations.html#lady-study), open lightbox for that item
+    (function openHashLightbox() {
+      const hash = window.location.hash ? window.location.hash.slice(1) : '';
+      if (!hash) return;
+      const target = allItems.find(i => i.id === hash);
+      if (!target) return;
+      // ensure target is visible (remove filter hiding if needed)
+      if (target.classList.contains('hidden')) {
+        target.classList.remove('hidden');
+        visibleItems = allItems.filter(i => !i.classList.contains('hidden'));
+      }
+      // open after a tiny delay so layout settled
+      setTimeout(() => {
+        openLightbox(target);
+        // move focus into lightbox for accessibility
+        lbClose.focus();
+      }, 60);
+    })();
+
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karen Zheng — Portfolio</title>
+
+  <!-- Google Fonts fallbacks (active until you add local woff2 files) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ======== NAV ======== -->
+  <nav>
+    <!-- CONFIG: Change "YN." to your initials -->
+    <a href="#" class="nav-logo">KZ.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact" class="nav-cta">Get in touch!</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about"   class="mob-link">About</a>
+    <a href="#work"    class="mob-link">Work</a>
+    <a href="#gallery" class="mob-link">Gallery</a>
+    <div class="mob-divider"></div>
+    <a href="#contact" class="mob-link mob-cta">Get in touch! ✦</a>
+  </div>
+
+  <!-- ======== HERO ======== -->
+  <section id="hero">
+    <!-- <div class="hero-shape-1"></div> -->
+    <!-- <div class="hero-shape-2"></div> -->
+
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag reveal">UI/UX Designer · NYU '26</div>
+
+        <!-- CONFIG: Replace "Your", "Name", "Here." with your name split across lines -->
+        <h1 class="hero-name reveal reveal-delay-1">
+          <span class="outline">Karen</span><br>
+          <span class="accent">Zheng.</span>
+        </h1>
+
+        <!-- CONFIG: Edit your bio -->
+        <p class="hero-bio reveal reveal-delay-2">
+          Crafting intuitive digital experiences at the intersection of
+          design and humanity. Currently studying at NYU Tisch.
+          Obsessed with the details no one notices — until they do.
+        </p>
+
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#work"    class="btn btn-primary">View Work &rarr;</a>
+          <a href="#contact" class="btn btn-outline">Say Hello</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="hero-img-card">
+          <!-- CONFIG: Uncomment and point to your photo -->
+          <img src="images/head_shot.jpg" alt="Karen Zheng">
+          <div class="placeholder">your photo here ✦</div>
+        </div>
+        <div class="hero-stats">
+          <!-- CONFIG: Update numbers -->
+          <!-- <div class="stat-pill">
+            <strong>12+</strong>
+            <span>Projects</span>
+          </div> -->
+          <div class="stat-pill">
+            <strong>5</strong>
+            <span>Years Exp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== MARQUEE ======== -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- CONFIG: Edit marquee tags — duplicate the set to keep loop seamless -->
+      <div class="marquee-item"><span class="marquee-star">✦</span>UI/UX Design</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Research &amp; Strategy</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Visual Design</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Prototyping</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>NYU Tisch</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Product Thinking</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Motion Design</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Typography</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="marquee-item"><span class="marquee-star">✦</span>UI/UX Design</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Research &amp; Strategy</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Visual Design</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Prototyping</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>NYU Tisch</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Product Thinking</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Motion Design</div>
+      <div class="marquee-item"><span class="marquee-star">✦</span>Typography</div>
+    </div>
+  </div>
+
+  <!-- ======== ABOUT ======== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-img-wrap reveal">
+          <div class="about-img">
+            <img src="images/Anglerfish.png" alt="About">
+            <div class="placeholder">🌿</div>
+          </div>
+          <div class="about-badge">
+            Currently open<br>to opportunities
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <p class="section-label">01 — About</p>
+          <h2 class="section-title">
+            Design is<br>
+            <em>curiosity</em><br>
+            made <span class="outline">visible.</span>
+          </h2>
+
+          <!-- CONFIG: Your about text -->
+          <p class="about-body">
+            Hi, I'm Karen Zheng, a UI/UX designer and NYU student passionate about
+            creating experiences that feel both beautiful and intuitive. I believe
+            the best design is the kind you don't notice — it simply works.
+            <br><br>
+            When I'm not wireframing, you'll find me exploring NYC's perfume,
+            reading a book, or trying every cheap eats near Union Square.
+          </p>
+
+          <div class="skills-list">
+            <!-- CONFIG: Your skills -->
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">User Research</span>
+            <span class="skill-tag">Prototyping</span>
+            <span class="skill-tag">Design Systems</span>
+            <span class="skill-tag">HTML / CSS</span>
+            <span class="skill-tag">Motion</span>
+            <span class="skill-tag">Accessibility</span>
+            <span class="skill-tag">Illustration</span>
+          </div>
+
+          <br>
+          <!-- CONFIG: Point to your actual resume file -->
+          <a href="resume.pdf" class="btn btn-dark" target="_blank">Download CV &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== WORK ======== -->
+  <section id="work">
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <p class="section-label">02 — Selected Work</p>
+          <h2 class="section-title">Things I've<br><em>built.</em></h2>
+        </div>
+        <!-- <a href="#" class="btn btn-dark">All Projects &rarr;</a> -->
+      </div>
+
+      <div class="work-grid">
+
+        <!-- CONFIG: Replace emoji, titles, descriptions, and add <img> tags inside .card-img -->
+        <a href="Altrovia/Altrovia.html" class="project-card card-1 reveal" style="text-decoration: none; color: inherit;">
+          <div class="card-img"><span><img src="images/Altrovia_Image.png" alt="Altrovia"></span></div>
+          <div class="card-body">
+            <p class="card-cat">Website · Design Competition</p>
+            <h3 class="card-title">Altrovia — Medicine Information Design</h3>
+            <p class="card-desc">Collaborated with 2 college students to redesign a website for Altrovia, a medicine company. Focused on making complex medical information intuitive and easy to digest for users.</p>
+          </div>
+          <div class="card-arrow">↗</div>
+        </a>
+
+        <div class="project-card card-2 reveal reveal-delay-1">
+          <div class="card-img"><span><img src="images/OneHander.png" alt="OneHander"></span></div>
+          <div class="card-body">
+            <p class="card-cat">Product Design · Human-Centered Design</p>
+            <h3 class="card-title">OneHander — Campus Navigation Solution</h3>
+            <p class="card-desc">Designed a product solution for students struggling to hold food, drinks, snacks, and utensils while opening doors to navigate campus. Created in Human-Centered Product Design class.</p>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+
+        <!-- <div class="project-card card-3 reveal reveal-delay-1">
+          <div class="card-img"><span>📊</span></div>
+          <div class="card-body">
+            <p class="card-cat">Dashboard · Data Viz</p>
+            <h3 class="card-title">Orbit Analytics</h3>
+            <p class="card-desc">Complex data, made human. A B2B dashboard redesign.</p>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+
+        <div class="project-card card-4 reveal reveal-delay-2">
+          <div class="card-img"><span>🎨</span></div>
+          <div class="card-body">
+            <p class="card-cat">Branding</p>
+            <h3 class="card-title">Studio Ino Identity</h3>
+            <p class="card-desc">Visual identity for an art residency in Brooklyn.</p>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div>
+
+        <div class="project-card card-5 reveal reveal-delay-3">
+          <div class="card-img"><span>🔤</span></div>
+          <div class="card-body">
+            <p class="card-cat">Typography</p>
+            <h3 class="card-title">Type Specimen</h3>
+            <p class="card-desc">Editorial exploration of type as image.</p>
+          </div>
+          <div class="card-arrow">↗</div>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== GALLERY ======== -->
+  <section id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <p class="section-label">03 — Visual Playground</p>
+          <h2 class="section-title">Art &amp; <em>experiments.</em></h2>
+        </div>
+        <a href="Illustrations.html" class="btn btn-dark">View All &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Full-bleed drag-to-scroll track -->
+    <div class="gallery-scroll-track" id="galleryTrack">
+      <div style="width:32px;flex-shrink:0;"></div>
+
+      <!-- CONFIG: Replace .placeholder divs with <img> tags for your artwork -->
+      <div class="gallery-item gi-tall">
+        <a href="Illustrations.html#mogoon-3"><img src="images/Illustrations/mogoon3.jpg" alt="Mogoon Illustration"></a>
+        <div class="gi-label">Illustration</div>
+      </div>
+
+      <div class="gallery-item gi-sq">
+        <a href="Illustrations.html#el-gato"><img src="images/Illustrations/El Gato.PNG" alt="El Gato Illustration"></a>
+        <div class="gi-label">Illustration</div>
+      </div>
+
+      <div class="gallery-item gi-sq">
+        <a href="Illustrations.html#shrimp-chips"><img src="images/Illustrations/shrimpChips.png" alt="Shrimp Chips Illustration"></a>
+        <div class="gi-label">Illustration</div>
+      </div>
+
+      <div class="gallery-item gi-sq">
+        <a href="Illustrations.html#walking-bear"><img src="images/Illustrations/walkingBearAnimation.gif" alt="Walking Bear Animation"></a>
+        <div class="gi-label">Animation</div>
+      </div>
+
+      <div class="gallery-item gi-sq">
+        <a href="Illustrations.html#skull"><img src="images/Illustrations/SideSkull.png" alt="Side Skull Illustration"></a>
+        <div class="gi-label">Illustration</div>
+      </div>
+
+      <div style="width:32px;flex-shrink:0;"></div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT ======== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+
+        <div class="contact-left reveal">
+          <p class="section-label" style="color:var(--olive);">04 — Let's Connect</p>
+          <h2 class="contact-big">
+            Let's make<br>something<br><em>great.</em>
+          </h2>
+          <!-- CONFIG: Your contact blurb -->
+          <p class="contact-desc">
+            Whether it's a collaboration, internship opportunity, or just a
+            chat about design — I'm always happy to connect.
+          </p>
+          <div class="contact-links">
+            <!-- CONFIG: Update all hrefs and display text -->
+            <a href="mailto:karenzheng15@gmail.com" class="contact-link">
+              <div class="contact-link-icon">✉</div>karenzheng15@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/karenzhengg/" class="contact-link" target="_blank">
+              <div class="contact-link-icon">in</div>https://www.linkedin.com/in/karenzhengg/
+            </a>
+            <!-- <a href="https://behance.net/yourname" class="contact-link" target="_blank">
+              <div class="contact-link-icon">Be</div>behance.net/yourname
+            </a>
+            <a href="https://instagram.com/yourname" class="contact-link" target="_blank">
+              <div class="contact-link-icon">ig</div>@yourhandle
+            </a> -->
+          </div>
+        </div>
+
+        <div class="contact-right reveal reveal-delay-1">
+          <div class="about-img-wrap">
+            <div class="about-img">
+              <img src="images/Illustrations/lady.png" alt="Contact">
+              <div class="placeholder">✨</div>
+            </div>
+            <div class="about-badge">
+              Let's create<br>together ✦
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="contact-form reveal reveal-delay-1">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input type="text" id="subject" class="form-input" placeholder="What's on your mind?">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" class="form-textarea" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button class="form-submit" id="sendBtn">Send Message ✦</button>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <div class="footer-inner">
+      <!-- CONFIG: Update logo, name, and social links -->
+      <a href="#" class="footer-logo">KZ.</a>
+      <p class="footer-copy">&copy; 2025 Karen Zheng. Crafted with curiosity.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/karenzhengg/" class="footer-soc" title="LinkedIn">in</a>
+        <a href="mailto:karenzheng15@gmail.com" class="footer-soc" title="Email">✉</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
