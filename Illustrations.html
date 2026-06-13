@@ -125,7 +125,6 @@
       display: block; width: 100%; height: 100%;
       transition: transform .5s var(--ease);
       border-radius: 0;
-      /* real images: remove next line */
       min-height: 180px; object-fit: cover; object-position: center;
     }
     /* Placeholder when no real img */
@@ -378,27 +377,27 @@
     <a href="index.html" class="nav-logo">KZ.</a>
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#work">Work</a></li>
-      <li><a href="illustrations.html" style="color:var(--cream);">Illustrations</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Get in touch!</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+        <li><a href="index.html#design">Design</a></li>
+        <li><a href="index.html#drawing" style="color:var(--cream);">Drawing</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get in touch!</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#about"   class="mob-link">About</a>
-    <a href="index.html#work"    class="mob-link">Work</a>
-    <a href="illustrations.html" class="mob-link">Illustrations</a>
-    <div class="mob-divider"></div>
-    <a href="index.html#contact" class="mob-link mob-cta">Get in touch! ✦</a>
-  </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#about"   class="mob-link">About</a>
+      <a href="index.html#design" class="mob-link">Design</a>
+      <a href="index.html#drawing" class="mob-link">Drawing</a>
+      <div class="mob-divider"></div>
+      <a href="index.html#contact" class="mob-link mob-cta">Get in touch! ✦</a>
+    </div>
 
   <!-- ── PAGE HEADER ───────────────────────────────────────── -->
   <header class="page-header">
     <div class="container">
-      <span class="page-header-label">Creative Work</span>
+      <span class="page-header-label">Creative Drawing</span>
       <h1>Illus<em>trations</em></h1>
       <!-- CONFIG: Edit description -->
       <p class="page-header-desc">
@@ -409,7 +408,7 @@
         <div class="meta-item">
           <!-- CONFIG: Update count -->
           <span class="meta-num" id="totalCount">0</span>
-          <span class="meta-lbl">Works</span>
+          <span class="meta-lbl">Drawings</span>
         </div>
         <div class="meta-item">
           <span class="meta-num">2026</span>
@@ -429,7 +428,7 @@
         <button class="filter-btn" data-filter="digital">Digital</button>
         <button class="filter-btn" data-filter="traditional">Traditional</button>
         <button class="filter-btn" data-filter="character">Character</button>
-        <button class="filter-btn" data-filter="landscape">Landscape</button>
+        <button class="filter-btn" data-filter="food">Food</button>
         <!-- <button class="filter-btn" data-filter="abstract">Abstract</button> -->
       </div>
     </div>
@@ -466,7 +465,7 @@
           <div class="overlay"><div class="overlay-title">El Gato</div></div>
         </div>
 
-        <div id="shrimp-chips" class="masonry-item reveal reveal-delay-2" data-category="digital"
+        <div id="shrimp-chips" class="masonry-item reveal reveal-delay-2" data-category="food"
           data-title="Shrimp Chips" data-medium="Digital · Procreate"
           data-caption="Playful food illustration mixing texture, pattern, and a hint of nostalgia."
           data-tags="digital,food,illustration">
@@ -482,12 +481,20 @@
           <div class="overlay"><div class="overlay-title">Walking Bear</div></div>
         </div>
 
-        <div class="masonry-item reveal reveal-delay-2" data-category="digital"
+        <div class="masonry-item reveal reveal-delay-2" data-category="food"
           data-title="Deviled Eggs" data-medium="Digital · Procreate"
           data-caption="A food illustration that leans into color, texture, and visual appetite."
           data-tags="digital,food,illustration">
           <img src="images/Illustrations/deviled_Eggs.png" alt="Deviled Eggs">
           <div class="overlay"><div class="overlay-title">Deviled Eggs</div></div>
+        </div>
+
+        <div class="masonry-item reveal" data-category="food"
+          data-title="Ask Food" data-medium="Digital · Procreate"
+          data-caption="A food illustration titled 'Ask Food'."
+          data-tags="digital,food,illustration">
+          <img src="images/Illustrations/Cake.jpeg" alt="Ask Food">
+          <div class="overlay"><div class="overlay-title">Ask Food</div></div>
         </div>
 
         <div class="masonry-item reveal" data-category="character"
@@ -538,6 +545,14 @@
           <div class="overlay"><div class="overlay-title">Man Study 3</div></div>
         </div>
 
+        <div id="skull" class="masonry-item reveal reveal-delay-1" data-category="traditional"
+          data-title="Skull Study" data-medium="Digital · Photoshop"
+          data-caption="A moody skull piece that leans into texture, shadow, and graphic composition."
+          data-tags="skull,study">
+          <img src="images/Illustrations/skull.jpg" alt="Skull Study">
+          <div class="overlay"><div class="overlay-title">Skull Study</div></div>
+        </div>
+
         <div class="masonry-item reveal" data-category="digital"
           data-title="Mogoon 1" data-medium="Digital · Procreate"
           data-caption="The first in a series of character illustrations with bold color and playful shape."
@@ -553,21 +568,13 @@
           <img src="images/Illustrations/mogoon2.jpg" alt="Mogoon 2">
           <div class="overlay"><div class="overlay-title">Mogoon 2</div></div>
         </div>
-        
+
         <div id="mogoon3" class="masonry-item reveal reveal-delay-2" data-category="digital"
           data-title="Mogoon 3" data-medium="Digital · Procreate"
           data-caption="A third variation in the Mogoon series, showcasing a more detailed and intricate design."
           data-tags="digital,illustration,character">
           <img src="images/Illustrations/mogoon3.jpg" alt="Mogoon 3">
           <div class="overlay"><div class="overlay-title">Mogoon 3</div></div>
-        </div>
-
-        <div id="skull" class="masonry-item reveal reveal-delay-1" data-category="traditional"
-          data-title="Skull Study" data-medium="Digital · Photoshop"
-          data-caption="A moody skull piece that leans into texture, shadow, and graphic composition."
-          data-tags="skull,study">
-          <img src="images/Illustrations/skull.jpg" alt="Skull Study">
-          <div class="overlay"><div class="overlay-title">Skull Study</div></div>
         </div>
 
       </div>
@@ -610,7 +617,7 @@
   <footer>
     <div class="footer-inner">
       <a href="index.html" class="footer-logo">KZ.</a>
-      <p class="footer-copy">&copy; 2025 Your Name. All illustrations original.</p>
+      <p class="footer-copy">&copy; 2026 Karen Zheng. All illustrations original.</p>
       <div class="footer-socials">
         <!-- <a href="#" class="footer-soc" title="Instagram">ig</a> -->
         <a href="https://www.linkedin.com/in/karenzhengg/" class="footer-soc" title="LinkedIn">in</a>

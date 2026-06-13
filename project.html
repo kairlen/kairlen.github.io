@@ -82,7 +82,7 @@
       -webkit-text-stroke: 2px var(--orange);
       color: transparent;
     }
-    .project-blurb-col {}
+    /* .project-blurb-col {} */
     .project-blurb {
       font-size: .95rem; line-height: 1.85;
       color: rgba(245,237,214,.65);
@@ -212,7 +212,7 @@
       display: flex; align-items: flex-end; justify-content: space-between;
       margin-bottom: 56px; gap: 24px;
     }
-    .process-header-left {}
+    /* .process-header-left {} */
 
     /* Phase dividers */
     .phase-block { margin-bottom: 72px; }
@@ -225,7 +225,7 @@
       font-family: var(--font-title); font-size: 3.5rem;
       color: var(--border); line-height: 1;
     }
-    .phase-info {}
+    /* .phase-info {} */
     .phase-tag {
       font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
       color: var(--orange); margin-bottom: 4px;
@@ -472,7 +472,7 @@
     <div class="nav-logo">KZ.</div>
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#work" style="color:var(--cream);">Work</a></li>
+      <li><a href="index.html#design" style="color:var(--cream);">Design</a></li>
       <li><a href="illustrations.html">Illustrations</a></li>
       <li><a href="index.html#contact" class="nav-cta">Get in touch!</a></li>
     </ul>
@@ -482,7 +482,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html#about"   class="mob-link">About</a>
-    <a href="index.html#work"    class="mob-link">Work</a>
+    <a href="index.html#design" class="mob-link">Design</a>
     <a href="illustrations.html" class="mob-link">Illustrations</a>
     <div class="mob-divider"></div>
     <a href="index.html#contact" class="mob-link mob-cta">Get in touch! ✦</a>
@@ -495,7 +495,7 @@
     <div class="container">
 
       <!-- CONFIG: href back to wherever the project was linked from -->
-      <a href="index.html#work" class="back-link">Back to Work</a>
+      <a href="index.html#design" class="back-link">Back to Design</a>
 
       <div class="project-meta-strip">
         <!-- CONFIG: category and year -->
@@ -512,10 +512,9 @@
         <div class="project-blurb-col">
           <!-- CONFIG: one-paragraph elevator pitch -->
           <p class="project-blurb">
-            A mental wellness app redesigned from the ground up for Gen Z users.
-            The core challenge: make emotional check-ins feel like self-care,
-            not homework. The result reduced drop-off by 34% and increased daily
-            active use by 2.3×.
+            A mental wellness app redesigned for Gen Z audiences. The core challenge
+            was to make emotional check-ins feel supportive instead of stressful.
+            The result improved engagement while preserving a calm, inviting tone.
           </p>
           <div class="project-tags">
             <!-- CONFIG: your tags -->
@@ -594,14 +593,13 @@
           <h2 class="overview-title">Making <em>mental health</em><br>feel less clinical.</h2>
           <!-- CONFIG: challenge description -->
           <p class="overview-body">
-            Existing mental wellness apps felt like productivity tools in disguise —
-            streaks, badges, push notifications guilt-tripping users back. The brief
-            was to make something that met people where they were, not where the
-            algorithm wanted them to be.
+            Existing wellness apps often felt overly clinical and performance driven.
+            Our brief was to create a design that honored user agency and reduced
+            friction while preserving emotional support.
           </p>
           <p class="overview-body" style="margin-top:16px;">
-            I led research, IA, visual design, and handoff across a 12-week sprint
-            with one engineer and a product manager.
+            I led research, information architecture, visual design, and handoff
+            across a 12-week sprint with an engineer and product manager.
           </p>
         </div>
 
@@ -648,7 +646,6 @@
 
       <div class="process-header reveal">
         <div class="process-header-left">
-          <p class="overview-label">Process</p>
           <h2 class="overview-title" style="margin-bottom:0;">How it came <em>together.</em></h2>
         </div>
       </div>
@@ -658,15 +655,14 @@
         <div class="phase-label-row">
           <div class="phase-num">01</div>
           <div class="phase-info">
-            <p class="phase-tag">Discovery</p>
             <h3 class="phase-title">Research &amp; Synthesis</h3>
           </div>
         </div>
         <!-- CONFIG: phase description -->
         <p class="phase-desc">
-          Twenty user interviews, competitive teardowns, and a survey of 140 Gen Z
-          respondents. The key finding: users didn't want to be reminded they weren't
-          doing well — they wanted to be met with curiosity, not judgment.
+          User interviews, competitive teardowns, and a survey of 140 Gen Z users
+          revealed a consistent need for subtle, supportive guidance rather than
+          reminders that users were underperforming.
         </p>
 
         <!--
@@ -731,14 +727,13 @@
         <div class="phase-label-row">
           <div class="phase-num">02</div>
           <div class="phase-info">
-            <p class="phase-tag">Design</p>
             <h3 class="phase-title">Wireframes &amp; Prototypes</h3>
           </div>
         </div>
         <p class="phase-desc">
-          From rough sketches to interactive prototypes in Figma — tested iteratively
-          with 8 participants across three rounds. The check-in flow went through
-          11 iterations before it felt right.
+          From sketches to high-fidelity prototypes, we iterated with eight
+          participants across three rounds. Each update sharpened the check-in
+          flow and reduced cognitive load for first-time users.
         </p>
 
         <div class="masonry" data-gallery="phase2">
@@ -752,11 +747,11 @@
           </div>
 
           <div class="masonry-item"
-            data-title="Mid-fi Wireframes" data-medium="Design · Figma"
+            data-title="Wireframe 1" data-medium="Design · Figma"
             data-caption="8 screens covering the core check-in loop. Focus at this stage was purely on information hierarchy and interaction model — no visual styling."
             data-tags="wireframes,mid-fi,figma">
             <div class="img-placeholder" style="height:280px;background:linear-gradient(155deg,var(--surface),var(--mauve));">📐</div>
-            <div class="overlay"><div class="overlay-title">Mid-fi Wireframes</div></div>
+            <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
           </div>
 
           <div class="masonry-item"
@@ -791,7 +786,6 @@
         <div class="phase-label-row">
           <div class="phase-num">03</div>
           <div class="phase-info">
-            <p class="phase-tag">Visual Design</p>
             <h3 class="phase-title">Final UI &amp; Design System</h3>
           </div>
         </div>
@@ -978,8 +972,8 @@
       });
 
       lbFill.style.width = `${((currentIndex + 1) / currentPool.length) * 100}%`;
-      lbPrev.style.opacity = currentIndex === 0 ? '.3' : '1';
-      lbNext.style.opacity = currentIndex === currentPool.length - 1 ? '.3' : '1';
+      lbPrev.style.opacity = '1';
+      lbNext.style.opacity = '1';
     }
 
     /* ── Close ── */
@@ -991,8 +985,10 @@
 
     /* ── Navigate ── */
     function navigate(dir) {
-      const next = currentIndex + dir;
-      if (next < 0 || next >= currentPool.length) return;
+      const total = currentPool.length;
+      let next = currentIndex + dir;
+      if (next < 0) next = total - 1;
+      if (next >= total) next = 0;
       currentIndex = next;
       render();
     }

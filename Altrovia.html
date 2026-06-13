@@ -83,7 +83,7 @@
       -webkit-text-stroke: 2px var(--orange);
       color: transparent;
     }
-    .project-blurb-col {}
+    /* .project-blurb-col {} */
     .project-blurb {
       font-size: .95rem; line-height: 1.85;
       color: rgba(245,237,214,.65);
@@ -231,7 +231,7 @@
       font-family: var(--font-title); font-size: 3.5rem;
       color: var(--border); line-height: 1;
     }
-    .phase-info {}
+    /* .phase-info {} */
     .phase-tag {
       font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
       color: var(--orange); margin-bottom: 4px;
@@ -474,7 +474,7 @@
     <a href="index.html" class="nav-logo">KZ.</a>
     <ul class="nav-links">
       <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#work" style="color:var(--cream);">Work</a></li>
+      <li><a href="index.html#design" style="color:var(--cream);">Design</a></li>
       <li><a href="illustrations.html">Illustrations</a></li>
       <li><a href="index.html#contact" class="nav-cta">Get in touch!</a></li>
     </ul>
@@ -484,7 +484,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html#about"   class="mob-link">About</a>
-    <a href="index.html#work"    class="mob-link">Work</a>
+    <a href="index.html#design" class="mob-link">Design</a>
     <a href="illustrations.html" class="mob-link">Illustrations</a>
     <div class="mob-divider"></div>
     <a href="index.html#contact" class="mob-link mob-cta">Get in touch! ✦</a>
@@ -497,7 +497,7 @@
     <div class="container">
 
       <!-- CONFIG: href back to wherever the project was linked from -->
-      <a href="index.html#work" class="back-link">Back to Work</a>
+      <a href="index.html#design" class="back-link">Back to Design</a>
 
       <div class="project-meta-strip">
         <span class="project-cat">UI/UX Redesign</span>
@@ -511,11 +511,11 @@
         </div>
         <div class="project-blurb-col">
           <p class="project-blurb">
-            In the original Altrovia website, it was unclear what the product
-            actually does. The wording was vague, and there weren't complete
-            pictures/videos of using the product to design sample clinical trials.
-            This lack of clarity causes an accessibility problem. It was hard to
-            visualize how Altrovia AI could specifically aid researchers.
+            The original Altrovia website left users unsure about the product’s
+            purpose and workflow. Messaging was vague, and the experience lacked
+            concrete examples of how Altrovia AI supports clinical trial design.
+            We focused on clarity, a tighter information hierarchy, and stronger
+            visual storytelling to make the platform feel both useful and credible.
           </p>
           <div class="project-tags">
             <span class="project-tag">Altrovia</span>
@@ -592,13 +592,14 @@
           <p class="overview-label">Problem</p>
           <h2 class="overview-title">Altrovia wasn't clear<br>about its value.</h2>
           <p class="overview-body">
-            In the original Altrovia website, it was unclear what the product
-            actually does. The wording was vague, and there weren't complete
-            pictures/videos of using the product to design sample clinical trials.
+            The original site did not clearly communicate Altrovia AI’s value or
+            how it fits into a researcher’s workflow. Users needed faster access
+            to the product’s core capabilities and practical use cases.
           </p>
           <p class="overview-body" style="margin-top:16px;">
-            This lack of clarity causes an accessibility problem. It was hard to
-            visualize how Altrovia AI could specifically aid researchers.
+            The redesign made the product narrative more direct while also
+            showcasing interface screens so visitors can immediately understand
+            how Altrovia supports trial planning and analysis.
           </p>
         </div>
 
@@ -639,7 +640,6 @@
 
       <div class="process-header reveal">
         <div class="process-header-left">
-          <p class="overview-label">Process</p>
           <h2 class="overview-title" style="margin-bottom:0;">How it came <em>together.</em></h2>
         </div>
       </div>
@@ -649,15 +649,14 @@
         <div class="phase-label-row">
           <div class="phase-num">01</div>
           <div class="phase-info">
-            <p class="phase-tag">Design Rationale</p>
             <h3 class="phase-title">Start with wireframes and references.</h3>
           </div>
         </div>
         <p class="phase-desc">
-          First, we created wireframe ideas by referencing the original Altrovia
-          website and adjacent industry examples such as Cursor. The goal was to
-          ground the redesign in a clean, professional experience that felt
-          trustworthy and modern.
+          We opened the redesign by building wireframes and mapping reference
+          patterns. The objective was to establish a cleaner information
+          hierarchy and present Altrovia’s core capabilities in a more credible,
+          approachable way.
         </p>
 
         <!--
@@ -675,37 +674,38 @@
         <div class="masonry" data-gallery="phase1">
 
           <div class="masonry-item"
-            data-title="Interview Synthesis Map" data-medium="Research · FigJam"
-            data-caption="Affinity mapping from 20 user interviews. Each color represents a distinct theme — we identified 6 core emotional patterns that drove the final IA."
-            data-tags="research,synthesis,affinity map">
-            <div class="img-placeholder" style="height:300px;background:linear-gradient(145deg,var(--olive),var(--green));">🗂️</div>
-            <div class="overlay"><div class="overlay-title">Interview Synthesis Map</div></div>
+            data-title="Wireframe 1" data-medium="Design · Altrovia"
+            data-caption="Initial wireframe showing the homepage structure and feature hierarchy, grounded in Altrovia's core product goals."
+            data-tags="wireframe,home,structure">
+            <img src="images/Altrovia_Images/Altrovia_Wireframe1.png" alt="Altrovia wireframe 1">
+            <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
           </div>
 
           <div class="masonry-item"
-            data-title="Competitive Teardown" data-medium="Research · Figma"
-            data-caption="Side-by-side analysis of 8 competitor apps. We found a consistent pattern: gamification elements were actively harming retention among anxious users."
-            data-tags="research,competitive,analysis">
-            <div class="img-placeholder" style="height:220px;background:linear-gradient(160deg,var(--mauve),var(--purple));">📊</div>
-            <div class="overlay"><div class="overlay-title">Competitive Teardown</div></div>
+            data-title="Wireframe 2" data-medium="Design · Altrovia"
+            data-caption="Second wireframe emphasizing onboarding flow and clear value communication for researchers."
+            data-tags="wireframe,onboarding,clarity">
+            <img src="images/Altrovia_Images/Altrovia_Wireframe2.png" alt="Altrovia wireframe 2">
+            <div class="overlay"><div class="overlay-title">Wireframe 2</div></div>
           </div>
 
           <div class="masonry-item"
-            data-title="Survey Results" data-medium="Research · Maze"
-            data-caption="140 respondents, ages 18–26. The open-ended question 'what does a good mental health day feel like?' gave us the language for the entire product."
-            data-tags="research,quantitative,survey">
-            <div class="img-placeholder" style="height:260px;background:linear-gradient(135deg,var(--orange),var(--mauve));">📋</div>
-            <div class="overlay"><div class="overlay-title">Survey Results</div></div>
+            data-title="Wireframe 3" data-medium="Design · Altrovia"
+            data-caption="Third wireframe iteration focused on the main task flow and streamlined access to core functionality."
+            data-tags="wireframe,workflow,interaction">
+            <img src="images/Altrovia_Images/Altrovia_Wireframe3.png" alt="Altrovia wireframe 3">
+            <div class="overlay"><div class="overlay-title">Wireframe 3</div></div>
           </div>
 
           <div class="masonry-item"
-            data-title="Persona: Maya" data-medium="Synthesis · Figma"
-            data-caption="Primary persona built from interview synthesis. Maya, 22, is a college student managing anxiety who resents apps that make her feel like she's failing at self-care."
-            data-tags="persona,synthesis,ux">
-            <div class="img-placeholder" style="height:340px;background:linear-gradient(155deg,var(--purple),var(--olive));">👤</div>
-            <div class="overlay"><div class="overlay-title">Persona: Maya</div></div>
+            data-title="Wireframe 4" data-medium="Design · Altrovia"
+            data-caption="Final wireframe used to align the page layout and navigation before moving into high-fidelity polish."
+            data-tags="wireframe,final,layout">
+            <img src="images/Altrovia_Images/Altrovia_Wireframe4.png" alt="Altrovia wireframe 4">
+            <div class="overlay"><div class="overlay-title">Wireframe 4</div></div>
           </div>
 
+          <!--
           <div class="masonry-item"
             data-title="HMW Workshop Notes" data-medium="Synthesis · FigJam"
             data-caption="'How Might We' session with the full team. 80+ prompts reduced to 12 actionable directions. The winning frame: 'curiosity over correction'."
@@ -713,6 +713,7 @@
             <div class="img-placeholder" style="height:200px;background:linear-gradient(160deg,var(--green),var(--mauve));">💡</div>
             <div class="overlay"><div class="overlay-title">HMW Workshop Notes</div></div>
           </div>
+          -->
 
         </div>
       </div>
@@ -722,14 +723,13 @@
         <div class="phase-label-row">
           <div class="phase-num">02</div>
           <div class="phase-info">
-            <p class="phase-tag">Design Process</p>
             <h3 class="phase-title">Draft, refine, and simplify.</h3>
           </div>
         </div>
         <p class="phase-desc">
-          Continuing from wireframe concepts, we drafted designs in Figma with a
-          clean, minimalistic style that matched the brand’s futuristic,
-          professional personality.
+          From wireframes to Figma prototypes, we refined the interface to reduce
+          friction and improve clarity. Each iteration prioritized straightforward
+          navigation and meaningful content over decorative detail.
         </p>
 
         <div class="masonry" data-gallery="phase2">
@@ -782,15 +782,13 @@
         <div class="phase-label-row">
           <div class="phase-num">03</div>
           <div class="phase-info">
-            <p class="phase-tag">Design Process</p>
             <h3 class="phase-title">Combine strengths and polish the final product.</h3>
           </div>
         </div>
         <p class="phase-desc">
           Finally, we combined the strongest ideas from each concept, polished the
-          designs, and reached the final product. The prototype highlights how
-          Altrovia AI can guide clinical trial creation with a clear, organized
-          interface.
+          designs, and delivered a final prototype that makes clinical trial
+          planning easier to understand and easier to engage with.
         </p>
 
         <div class="masonry" data-gallery="phase3">
@@ -970,8 +968,8 @@
       });
 
       lbFill.style.width = `${((currentIndex + 1) / currentPool.length) * 100}%`;
-      lbPrev.style.opacity = currentIndex === 0 ? '.3' : '1';
-      lbNext.style.opacity = currentIndex === currentPool.length - 1 ? '.3' : '1';
+      lbPrev.style.opacity = '1';
+      lbNext.style.opacity = '1';
     }
 
     /* ── Close ── */
@@ -983,17 +981,10 @@
 
     /* ── Navigate ── */
     function navigate(dir) {
+      const total = currentPool.length;
       let next = currentIndex + dir;
-      // On narrow screens (mobile), allow wrap-around looping
-      const isMobile = window.innerWidth <= 720;
-      if (next < 0) {
-        if (isMobile) next = currentPool.length - 1;
-        else return;
-      }
-      if (next >= currentPool.length) {
-        if (isMobile) next = 0;
-        else return;
-      }
+      if (next < 0) next = total - 1;
+      if (next >= total) next = 0;
       currentIndex = next;
       render();
     }
