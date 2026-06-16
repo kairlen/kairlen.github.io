@@ -54,16 +54,20 @@ if (track) {
   track.addEventListener('mousedown', e => {
     isDown = true;
     track.style.cursor = 'grabbing';
-    startX = e.pageX - track.offsetLeft;
+    const rect = track.getBoundingClientRect();
+    startX = e.clientX - rect.left;
     scrollLeft = track.scrollLeft;
   });
   track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
-  track.addEventListener('mouseup',    () => { isDown = false; track.style.cursor = 'grab'; });
+  document.addEventListener('mouseup',    () => { if (!isDown) return; isDown = false; track.style.cursor = 'grab'; });
   track.addEventListener('mousemove', e => {
     if (!isDown) return;
     e.preventDefault();
-    track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.4;
+    const rect = track.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.4;
   });
+  track.addEventListener('dragstart', e => e.preventDefault());
 }
 
 /* ── CONTACT FORM ────────────────────────────────────────── */
