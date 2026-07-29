@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Illustrations — Your Name</title>
+  <title>Drawing — Karen Zheng</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,18 +21,6 @@
       position: relative;
       overflow: hidden;
     }
-    .page-header::before {
-      content: '';
-      position: absolute; top: -80px; right: -80px;
-      width: 380px; height: 380px;
-      background: var(--orange); border-radius: 50%; opacity: .12;
-    }
-    .page-header::after {
-      content: '';
-      position: absolute; bottom: -60px; left: -40px;
-      width: 240px; height: 240px;
-      background: var(--mauve); border-radius: 50%; opacity: .18;
-    }
     .page-header .container { position: relative; z-index: 2; }
     .page-header-label {
       font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
@@ -43,6 +31,7 @@
       font-size: clamp(3rem, 8vw, 7rem);
       line-height: .92; color: var(--cream);
       letter-spacing: -.02em;
+      margin-bottom: 24px;
     }
     .page-header h1 em {
       font-style: normal;
@@ -122,10 +111,13 @@
     @media (max-width: 720px) { .masonry-item { margin-bottom: 12px; } }
 
     .masonry-item img {
-      display: block; width: 100%; height: 100%;
+      /* display: block; width: 100%; height: 100%;
       transition: transform .5s var(--ease);
       border-radius: 0;
-      min-height: 180px; object-fit: contain; object-position: center;
+      min-height: 180px; object-fit: contain; object-position: center; */
+      width: 100%;
+      height: auto;
+      display: block;
     }
     /* Placeholder when no real img */
     .masonry-item .img-placeholder {
@@ -228,17 +220,19 @@
       display: flex; align-items: center; justify-content: center;
       background: var(--surface);
       overflow: hidden;
-      min-height: 400px;
+      flex: 1;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 90vh;
     }
     .lb-img-wrap img {
-      /* Ensure the image always fits its container both by width and height */
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      border-radius: 0;
-      display: block; margin: 0 auto;
+      display: block;
     }
     .lb-img-wrap .img-placeholder {
       width: 100%; height: 100%; min-height: 400px;
@@ -335,7 +329,10 @@
         opacity: 1;
       }
       .lb-drag-handle { display: flex; }
-      .lb-img-wrap { min-height: 50vw; max-height: 58svh; }
+      .lb-img-wrap { 
+        height: 58svh;
+        min-height: 0;
+      }
       .lb-info {
         padding: 8px 24px 36px;   /* top padding reduced — handle takes space */
         border-left: none;
@@ -397,11 +394,10 @@
   <!-- ── PAGE HEADER ───────────────────────────────────────── -->
   <header class="page-header">
     <div class="container">
-      <span class="page-header-label">Creative Drawing</span>
-      <h1>Illus<em>trations</em></h1>
+      <h1>Drawing</h1>
       <!-- CONFIG: Edit description -->
       <p class="page-header-desc">
-        A collection of personal illustration work — exploring color, texture,
+        A collection of personal drawing work — exploring color, texture,
         and the spaces between observation and imagination.
       </p>
       <div class="page-header-meta">
@@ -441,7 +437,7 @@
       <div class="masonry" id="masonryGrid">
 
         <!--
-          CONFIG: How to add your illustrations
+          CONFIG: How to add your drawings
           ─────────────────────────────────────
           Copy one .masonry-item block below and edit:
             data-category  : matches a filter-btn data-filter value
@@ -452,24 +448,24 @@
 
           For real images:
             Replace the .img-placeholder div with:
-            <img src="images/illustrations/your-file.jpg" alt="Title">
+            <img src="images/Drawing/your-file.jpg" alt="Title">
           The masonry handles any aspect ratio automatically.
         -->
 
 
         <div id="el-gato" class="masonry-item reveal reveal-delay-1" data-category="character"
           data-title="El Gato" data-medium="Digital · Procreate"
-          data-caption="A stylized feline portrait that balances bold shape with subtle expression."
-          data-tags="illustration,digital">
-          <img src="images/Illustrations/El Gato.PNG" alt="El Gato">
+          data-caption="A stylized feline drawing that balances bold shape with subtle expression."
+          data-tags="drawing,digital">
+          <img src="images/Drawing/El Gato.PNG" alt="El Gato Drawing">
           <div class="overlay"><div class="overlay-title">El Gato</div></div>
         </div>
 
         <div id="shrimp-chips" class="masonry-item reveal reveal-delay-2" data-category="food"
           data-title="Shrimp Chips" data-medium="Digital · Procreate"
-          data-caption="Playful food illustration mixing texture, pattern, and a hint of nostalgia."
-          data-tags="digital,food,illustration">
-          <img src="images/Illustrations/shrimpChips.png" alt="Shrimp Chips">
+          data-caption="Playful food drawing mixing texture, pattern, and a hint of nostalgia."
+          data-tags="digital,food,drawing">
+          <img src="images/Drawing/shrimpChips.png" alt="Shrimp Chips Drawing">
           <div class="overlay"><div class="overlay-title">Shrimp Chips</div></div>
         </div>
 
@@ -477,23 +473,23 @@
           data-title="Walking Bear" data-medium="Digital · Aseprite"
           data-caption="A looping animation still that captures a gentle, wandering movement."
           data-tags="character,animation,digital">
-          <img src="images/Illustrations/walkingBearAnimation.gif" alt="Walking Bear Animation">
+          <img src="images/Drawing/walkingBearAnimation.gif" alt="Walking Bear Drawing">
           <div class="overlay"><div class="overlay-title">Walking Bear</div></div>
         </div>
 
         <div class="masonry-item reveal reveal-delay-2" data-category="food"
           data-title="Deviled Eggs" data-medium="Digital · Procreate"
-          data-caption="A food illustration that leans into color, texture, and visual appetite."
-          data-tags="digital,food,illustration">
-          <img src="images/Illustrations/deviled_Eggs.png" alt="Deviled Eggs">
+          data-caption="A food drawing that leans into color, texture, and visual appetite."
+          data-tags="digital,food,drawing">
+          <img src="images/Drawing/deviled_Eggs.png" alt="Deviled Eggs Drawing">
           <div class="overlay"><div class="overlay-title">Deviled Eggs</div></div>
         </div>
 
         <div class="masonry-item reveal" data-category="food"
           data-title="Ask Food" data-medium="Digital · Procreate"
-          data-caption="A food illustration titled 'Ask Food'."
-          data-tags="digital,food,illustration">
-          <img src="images/Illustrations/Cake.jpeg" alt="Ask Food">
+          data-caption="A food drawing titled 'Ask Food'."
+          data-tags="digital,food,drawing">
+          <img src="images/Drawing/Cake.jpeg" alt="Ask Food Drawing">
           <div class="overlay"><div class="overlay-title">Ask Food</div></div>
         </div>
 
@@ -501,7 +497,7 @@
           data-title="Disgusted Face" data-medium="Digital · Procreate"
           data-caption="An expressive portrait study built around emotion and facial tension."
           data-tags="character,expression,portrait,digital,pixel-art">
-          <img src="images/Illustrations/disgustedFace.jpg" alt="Disgusted Face">
+          <img src="images/Drawing/disgustedFace.jpg" alt="Disgusted Face Drawing">
           <div class="overlay"><div class="overlay-title">Disgusted Face</div></div>
         </div>
 
@@ -509,7 +505,7 @@
           data-title="Lady Portrait" data-medium="Traditional · Pencil"
           data-caption="A portrait study that explores soft lighting and quiet presence."
           data-tags="character,portrait,figure,traditional">
-          <img src="images/Illustrations/lady.jpg" alt="Lady Portrait">
+          <img src="images/Drawing/lady.jpg" alt="Lady Portrait Drawing">
           <div class="overlay"><div class="overlay-title">Lady Portrait</div></div>
         </div>
 
@@ -517,7 +513,7 @@
           data-title="Lady Study" data-medium="Digital · Procreate"
           data-caption="An alternate take in the same portrait series, with a more graphic edge."
           data-tags="character,portrait,study,digital">
-          <img src="images/Illustrations/lady.png" alt="Lady Study">
+          <img src="images/Drawing/lady.png" alt="Lady Study Drawing">
           <div class="overlay"><div class="overlay-title">Lady Study</div></div>
         </div>
 
@@ -525,7 +521,7 @@
           data-title="Man Study 1" data-medium="Traditional · Pencil"
           data-caption="A quick figure sketch that emphasizes gesture and form."
           data-tags="character,figure,study,traditional">
-          <img src="images/Illustrations/man1.jpg" alt="Man Study 1">
+          <img src="images/Drawing/man1.jpg" alt="Man Study 1 Drawing">
           <div class="overlay"><div class="overlay-title">Man Study 1</div></div>
         </div>
 
@@ -533,7 +529,7 @@
           data-title="Man Study 2" data-medium="Traditional · Pencil"
           data-caption="Another portrait study from the same series, focusing on posture and mood."
           data-tags="character,figure,study,traditional">
-          <img src="images/Illustrations/man2.jpg" alt="Man Study 2">
+          <img src="images/Drawing/man2.jpg" alt="Man Study 2 Drawing">
           <div class="overlay"><div class="overlay-title">Man Study 2</div></div>
         </div>
 
@@ -541,7 +537,7 @@
           data-title="Man Study 3" data-medium="Traditional · Pencil"
           data-caption="A final variation in the trio of quick male figure studies."
           data-tags="character,figure,study,traditional">
-          <img src="images/Illustrations/man3.jpg" alt="Man Study 3">
+          <img src="images/Drawing/man3.jpg" alt="Man Study 3 Drawing">
           <div class="overlay"><div class="overlay-title">Man Study 3</div></div>
         </div>
 
@@ -549,38 +545,38 @@
           data-title="Skull Study" data-medium="Digital · Photoshop"
           data-caption="A moody skull piece that leans into texture, shadow, and graphic composition."
           data-tags="skull,study">
-          <img src="images/Illustrations/skull.jpg" alt="Skull Study">
+          <img src="images/Drawing/skull.jpg" alt="Skull Study Drawing">
           <div class="overlay"><div class="overlay-title">Skull Study</div></div>
         </div>
 
         <div class="masonry-item reveal" data-category="digital"
           data-title="Mogoon 1" data-medium="Digital · Procreate"
-          data-caption="The first in a series of character illustrations with bold color and playful shape."
-          data-tags="digital,illustration,character">
-          <img src="images/Illustrations/mogoon1.jpg" alt="Mogoon 1">
+          data-caption="The first in a series of character drawings with bold color and playful shape."
+          data-tags="digital,drawing,character">
+          <img src="images/Drawing/mogoon1.jpg" alt="Mogoon 1 Drawing">
           <div class="overlay"><div class="overlay-title">Mogoon 1</div></div>
         </div>
 
         <div class="masonry-item reveal reveal-delay-1" data-category="digital"
           data-title="Mogoon 2" data-medium="Digital · Procreate"
           data-caption="A second variation exploring the same character universe with richer contrast."
-          data-tags="digital,illustration,character">
-          <img src="images/Illustrations/mogoon2.jpg" alt="Mogoon 2">
+          data-tags="digital,drawing,character">
+          <img src="images/Drawing/mogoon2.jpg" alt="Mogoon 2 Drawing">
           <div class="overlay"><div class="overlay-title">Mogoon 2</div></div>
         </div>
 
         <div id="mogoon3" class="masonry-item reveal reveal-delay-2" data-category="digital"
           data-title="Mogoon 3" data-medium="Digital · Procreate"
           data-caption="A third variation in the Mogoon series, showcasing a more detailed and intricate design."
-          data-tags="digital,illustration,character">
-          <img src="images/Illustrations/mogoon3.jpg" alt="Mogoon 3">
+          data-tags="digital,drawing,character">
+          <img src="images/Drawing/mogoon3.jpg" alt="Mogoon 3 Drawing">
           <div class="overlay"><div class="overlay-title">Mogoon 3</div></div>
         </div>
 
       </div>
 
       <div class="empty-state" id="emptyState">
-        <p>No illustrations in this category yet.</p>
+        <p>No drawings in this category yet.</p>
       </div>
 
     </div>
@@ -599,7 +595,7 @@
       <div class="lb-info">
         <div class="lb-drag-handle" id="lbDragHandle"></div>
         <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
-        <div class="swipe-hint">Swipe to navigate</div>
+        <div class="swipe-hint"></div>
         <div class="lb-counter" id="lbCounter">1 / 12</div>
         <h2 class="lb-title" id="lbTitle">Title</h2>
         <p class="lb-medium" id="lbMedium">Medium</p>
@@ -617,7 +613,7 @@
   <footer>
     <div class="footer-inner">
       <a href="index.html" class="footer-logo">KZ.</a>
-      <p class="footer-copy">&copy; 2026 Karen Zheng. All illustrations original.</p>
+      <p class="footer-copy">&copy; 2026 Karen Zheng. All drawings original.</p>
       <div class="footer-socials">
         <!-- <a href="#" class="footer-soc" title="Instagram">ig</a> -->
         <a href="https://www.linkedin.com/in/karenzhengg/" class="footer-soc" title="LinkedIn">in</a>
@@ -887,7 +883,7 @@
       obs.observe(item);
     });
 
-    // If page was opened with a hash (e.g. Illustrations.html#lady-study), open lightbox for that item
+    // If page was opened with a hash (e.g. Drawing.html#lady-study), open lightbox for that item
     (function openHashLightbox() {
       const hash = window.location.hash ? window.location.hash.slice(1) : '';
       if (!hash) return;
