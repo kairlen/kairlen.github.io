@@ -375,6 +375,9 @@
     }
     .lb-close:hover { background: var(--green); color: var(--cream); border-color: var(--green); }
 
+    .lb-top-row  { display: contents; }
+    .lb-meta-row { display: contents; }
+
     /* Swipe-down handle (mobile) */
     .lb-drag-handle {
       display: none;
@@ -411,7 +414,12 @@
       }
       .lb-close   { display: none; }
       .lb-arrow   { display: none; }
-      .lb-title   { font-size: 1.25rem; }
+      .lb-top-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+      .lb-close { align-self: auto; margin-bottom: 0; }
+      .lb-meta-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+      .lb-counter { margin-bottom: 0; flex-shrink: 0; }
+      .lb-title   { font-size: 1.25rem; margin-bottom: 0; }
+      .lb-medium  { margin-bottom: 12px; }
       .swipe-hint { display: flex; align-items: center; gap: 8px; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px; }
       .swipe-hint::before { content: '← swipe →'; }
     }
@@ -471,21 +479,21 @@
   <nav>
     <div class="nav-logo">KZ.</div>
     <ul class="nav-links">
-      <li><a href="index.html#about">About</a></li>
       <li><a href="index.html#design" style="color:var(--cream);">Design</a></li>
-      <li><a href="Drawing.html">Drawing</a></li>
-      <li><a href="index.html#contact" class="nav-cta">Get in touch!</a></li>
+      <li><a href="index.html#drawing">Drawing</a></li>
+      <!-- <li><a href="index.html#games-featured">Games</a></li> -->
+      <li><a href="index.html#great" class="nav-cta">Get in touch!</a></li>
     </ul>
     <div class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#about"   class="mob-link">About</a>
     <a href="index.html#design" class="mob-link">Design</a>
-    <a href="Drawing.html" class="mob-link">Drawing</a>
+    <a href="index.html#drawing" class="mob-link">Drawing</a>
+    <!-- <a href="index.html#games-featured" class="mob-link">Games</a> -->
     <div class="mob-divider"></div>
-    <a href="index.html#contact" class="mob-link mob-cta">Get in touch! ✦</a>
+    <a href="index.html#great" class="mob-link mob-cta">Get in touch! ✦</a>
   </div>
 
   <!-- ════════════════════════════════════════════════════
@@ -885,8 +893,10 @@
         <div class="lb-drag-handle" id="lbDragHandle"></div>
         <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
         <div class="swipe-hint"></div>
-        <div class="lb-counter" id="lbCounter">1 / 5</div>
-        <h2 class="lb-title"   id="lbTitle">Title</h2>
+        <div class="lb-meta-row">
+          <div class="lb-counter" id="lbCounter">1 / 5</div>
+          <h2 class="lb-title"   id="lbTitle">Title</h2>
+        </div>
         <p  class="lb-medium"  id="lbMedium">Medium</p>
         <p  class="lb-caption" id="lbCaption">Caption text</p>
         <div class="lb-tags"   id="lbTags"></div>

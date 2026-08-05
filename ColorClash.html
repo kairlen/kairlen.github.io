@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Altrovia AI — UI/UX Redesign</title>
+  <title>Color Clash — Voice-Controlled Web Game</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,9 +66,9 @@
     /* ── Title + blurb ── */
     .project-title-wrap {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(240px, 320px);
+      grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: start;
+      align-items: end;
       padding-bottom: 56px;
     }
     .project-title {
@@ -99,18 +99,7 @@
     }
     .project-tag:hover { border-color: rgba(245,237,214,.2); color: rgba(245,237,214,.65); }
 
-    /* ── Project details on hero right column (same typography as .detail-list elsewhere, recolored for the dark hero) ── */
-    .project-hero .detail-list { margin-top: 4px; }
-    .project-hero .detail-row { border-bottom: 1px solid rgba(245,237,214,.14); }
-    .project-hero .detail-key { color: rgba(245,237,214,.45); }
-    .project-hero .detail-val { color: var(--cream); }
-
-    /* ── Stat row (relocated to bottom of page — same background context as hero) ── */
-    .project-stats-section {
-      background: var(--green);
-      padding: 80px 0 56px;
-      border-top: 1px solid rgba(245,237,214,.12);
-    }
+    /* ── Stat row ── */
     .project-stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -151,9 +140,11 @@
       overflow: hidden;
     }
     .video-wrap iframe,
-    .video-wrap video {
+    .video-wrap video,
+    .video-wrap img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
+      object-fit: cover;
       border: none;
     }
     /* Placeholder when no video is set */
@@ -182,74 +173,13 @@
     ════════════════════════════════════════════════════════ */
     #overview {
       background: var(--cream);
-      padding: 100px 0 80px;
-      border-top: 1px solid var(--border);
+      padding: 80px 0;
     }
     .overview-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 56px;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
       align-items: start;
-      justify-items: start;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-    .overview-grid > .reveal {
-      width: 100%;
-      max-width: 620px;
-    }
-    .supporting-image-placeholder {
-      margin-top: 28px;
-    }
-    .supporting-image-placeholder img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: var(--r-xl);
-      min-height: 220px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-    }
-    .supporting-image-placeholder .placeholder-card {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-xl);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--ink-muted);
-      min-height: 220px;
-    }
-    .supporting-image-placeholder .placeholder-card span {
-      display: block;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    .reflection-list {
-      margin-top: 28px;
-      display: grid;
-      gap: 16px;
-      padding-left: 0;
-    }
-    .reflection-list li {
-      position: relative;
-      padding-left: 26px;
-      font-size: .92rem;
-      line-height: 1.8;
-      color: var(--ink-muted);
-    }
-    .reflection-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--orange);
-      font-size: 1.2rem;
-      line-height: 1;
     }
     .overview-label {
       font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
@@ -266,35 +196,13 @@
     }
     .overview-body + .overview-body { margin-top: 16px; }
 
-    .supporting-image-placeholder img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: var(--r-xl);
+    /* Development responsibilities list */
+    .dev-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+    .dev-list li {
+      font-size: .92rem; line-height: 1.75; color: var(--ink-muted);
+      padding-left: 20px; position: relative;
     }
-
-    .reflection-list {
-      margin-top: 28px;
-      display: grid;
-      gap: 16px;
-      padding-left: 0;
-    }
-    .reflection-list li {
-      position: relative;
-      padding-left: 26px;
-      font-size: .92rem;
-      line-height: 1.8;
-      color: var(--ink-muted);
-    }
-    .reflection-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--orange);
-      font-size: 1.2rem;
-      line-height: 1;
-    }
+    .dev-list li::before { content: '✦'; position: absolute; left: 0; top: 3px; color: var(--orange); font-size: .7rem; }
 
     /* Detail list */
     .detail-list { display: flex; flex-direction: column; gap: 20px; margin-top: 8px; }
@@ -310,60 +218,56 @@
     .detail-val { font-size: .9rem; color: var(--ink); line-height: 1.55; }
 
     /* ════════════════════════════════════════════════════════
+       KEY HIGHLIGHTS
+    ════════════════════════════════════════════════════════ */
+    #highlights { background: var(--surface); padding: 80px 0; }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .highlight-card {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--cream); border: 1.5px solid var(--border);
+      border-radius: var(--r-lg); padding: 22px;
+      transition: transform .25s var(--ease), box-shadow .25s;
+    }
+    .highlight-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(44,74,62,.12); }
+    .highlight-icon {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(232,115,42,.12); color: var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+    }
+    .highlight-text { font-size: .88rem; line-height: 1.65; color: var(--ink); padding-top: 4px; }
+
+    @media (max-width: 720px) {
+      .highlights-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════════════════════════════
        PROCESS SECTION (masonry galleries)
     ════════════════════════════════════════════════════════ */
     #process-section {
       background: var(--surface);
-      padding: 100px 0 100px;
-      border-top: 1px solid var(--border);
+      padding: 80px 0 100px;
     }
-    #process-section > .container { max-width: 620px; margin: 0 auto; }
     .process-header {
-      display: flex; flex-direction: column; align-items: flex-start;
-      text-align: left;
-      margin: 0 auto 88px; gap: 24px;
-      max-width: 620px;
-    }
-    .phase-block {
-      margin-bottom: 96px;
-      padding-top: 64px;
-      border-top: 1px solid var(--border);
-    }
-    .process-header + .phase-block { padding-top: 0; border-top: none; }
-    .phase-label-row {
-      display: flex; align-items: flex-start; gap: 20px;
-      margin-bottom: 28px;
-    }
-    .phase-num {
-      font-family: var(--font-title); font-size: 4rem;
-      color: var(--border); line-height: 1;
-      min-width: 90px;
-    }
-    .phase-title {
-      font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.05; margin-bottom: 24px; color: var(--ink);
-    }
-    .phase-desc {
-      font-size: .88rem; line-height: 1.75; color: var(--ink-muted);
-      max-width: 620px; margin-bottom: 28px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 56px; gap: 24px;
     }
     /* .process-header-left {} */
 
-    /* Phase dividers — vertical stepped layout, text left-aligned */
-    .phase-block {
-      margin-bottom: 96px;
-      padding-top: 64px;
-      border-top: 1px solid var(--border);
-    }
-    .process-header + .phase-block { padding-top: 0; border-top: none; }
+    /* Phase dividers */
+    .phase-block { margin-bottom: 72px; }
     .phase-block:last-child { margin-bottom: 0; }
     .phase-label-row {
-      display: flex; align-items: center; gap: 20px;
+      display: flex; align-items: center; gap: 16px;
       margin-bottom: 28px;
     }
     .phase-num {
-      font-family: var(--font-title); font-size: 4rem;
+      font-family: var(--font-title); font-size: 3.5rem;
       color: var(--border); line-height: 1;
     }
     /* .phase-info {} */
@@ -373,8 +277,7 @@
     }
     .phase-title {
       font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.05; margin-bottom: 24px; color: var(--ink);
+      font-size: 1.5rem; color: var(--ink); line-height: 1.1;
     }
     .phase-desc {
       font-size: .88rem; line-height: 1.75; color: var(--ink-muted);
@@ -601,8 +504,7 @@
       .project-stat { border-right: none; border-bottom: 1px solid rgba(245,237,214,.08); padding: 20px 0; }
       .project-stat:nth-child(2n) { padding-left: 24px; }
       .overview-grid { grid-template-columns: 1fr; gap: 40px; }
-      .process-header { margin-bottom: 56px; gap: 16px; }
-      .phase-block { margin-bottom: 64px; padding-top: 44px; }
+      .process-header { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
     @media (max-width: 640px) {
       .project-stats { grid-template-columns: repeat(2, 1fr); }
@@ -640,41 +542,54 @@
   ════════════════════════════════════════════════════ -->
   <header class="project-hero">
     <div class="container">
-      <div class="hero-column">
 
-        <!-- CONFIG: href back to wherever the project was linked from -->
-        <a href="index.html#design" class="back-link">Back to Design</a>
+      <!-- CONFIG: href back to wherever the project was linked from -->
+      <a href="index.html#design" class="back-link">Back to Design</a>
 
-        <div class="project-title-wrap">
+      <div class="project-meta-strip">
+        <span class="project-cat">Voice-Controlled Web Game</span>
+        <div class="meta-divider"></div>
+        <span class="project-year">By Karen Zheng — Solo Developer &amp; Artist</span>
+      </div>
+
+      <div class="project-title-wrap">
         <div>
-          <h1 class="project-title">Altrovia <em>AI</em></h1>
-          <p class="project-blurb" style="margin-top:24px; margin-bottom:0;">
-            Altrovia AI was hard to understand at a glance. We reshaped the
-            experience to lead with clear value, simplified task flow, and
-            concrete visuals so researchers can quickly see how the product
-            helps plan and analyze clinical trials.
-          </p>
+          <h1 class="project-title">Color <em>Clash</em></h1>
         </div>
-
         <div class="project-blurb-col">
-          <div class="detail-list">
-            <div class="detail-row">
-              <span class="detail-key">Role</span>
-              <span class="detail-val">Lead Designer</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Team</span>
-              <span class="detail-val">Karen, Olivia, Jane</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Timeline</span>
-              <span class="detail-val">2  days</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Context</span>
-              <span class="detail-val">Designathon</span>
-            </div>
+          <p class="project-blurb">
+            A voice-controlled web game exploring the Stroop Effect through
+            interactive gameplay. Built entirely solo in p5.js, Color Clash
+            challenges players to respond to spoken color commands rather
+            than the text displayed on screen — turning a classic
+            psychology test into a fast, hands-free game.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">p5.js</span>
+            <span class="project-tag">Voice Recognition</span>
+            <span class="project-tag">Aseprite</span>
+            <span class="project-tag">After Effects</span>
+            <span class="project-tag">Solo Project</span>
           </div>
+        </div>
+      </div>
+
+      <div class="project-stats">
+        <div class="project-stat">
+          <div class="stat-val">1</div>
+          <div class="stat-lbl">Solo Developer</div>
+        </div>
+        <div class="project-stat">
+          <div class="stat-val">p5.js</div>
+          <div class="stat-lbl">Built With</div>
+        </div>
+        <div class="project-stat">
+          <div class="stat-val">Voice</div>
+          <div class="stat-lbl">Primary Input</div>
+        </div>
+        <div class="project-stat">
+          <div class="stat-val">Stroop</div>
+          <div class="stat-lbl">Game Concept</div>
         </div>
       </div>
 
@@ -682,36 +597,27 @@
   </header>
 
   <!-- ════════════════════════════════════════════════════
-       VIDEO
+       HERO IMAGE
   ════════════════════════════════════════════════════ -->
-  <!-- <section id="video-section">
-    <div class="video-wrap"> -->
+  <section id="video-section">
+    <div class="video-wrap">
       <!--
-        CONFIG: Paste your demo video here. Three options:
+        CONFIG: Replace this placeholder with a full-bleed key art
+        image or gameplay screenshot of Color Clash:
 
-        A) YouTube embed:
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=0&rel=0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+        <img src="images/ColorClash/hero.jpg" alt="Color Clash gameplay">
 
-        B) Vimeo embed:
-        <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen></iframe>
-
-        C) Self-hosted video file:
-        <video controls poster="images/projects/wavelength/thumbnail.jpg">
-          <source src="images/projects/wavelength/demo.mp4" type="video/mp4">
+        A short gameplay clip works too — swap the div below for:
+        <video controls poster="images/ColorClash/hero.jpg">
+          <source src="images/ColorClash/demo.mp4" type="video/mp4">
         </video>
-
-        Until you add a real video, the placeholder below shows:
       -->
-      <!-- <div class="video-placeholder" id="videoPlaceholder">
-        <div class="play-ring">▶</div>
-        <p>Demo video — replace with embed or &lt;video&gt; tag</p>
+      <div class="video-placeholder" id="videoPlaceholder">
+        <div class="play-ring">🎨</div>
+        <p>Hero image — replace with a screenshot or key art of Color Clash</p>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- ════════════════════════════════════════════════════
        OVERVIEW
@@ -721,39 +627,46 @@
       <div class="overview-grid">
 
         <div class="reveal">
-          <p class="overview-label">Problem</p>
-          <h2 class="overview-title">Altrovia wasn't clear about its value.</h2>
+          <p class="overview-label">Overview</p>
+          <h2 class="overview-title">Voice meets<br>the Stroop Effect.</h2>
           <p class="overview-body">
-            The original site <strong>didn't clearly communicate</strong> Altrovia AI’s value or
-            how it fits into a researcher’s workflow. Users needed faster access
-            to the product’s core capabilities and practical use cases.
+            Color Clash is a browser-based game that I designed and developed
+            entirely on my own using p5.js. The gameplay is inspired by the
+            Stroop Effect, challenging players to think quickly by responding
+            to spoken color commands rather than the text displayed on screen.
           </p>
           <p class="overview-body" style="margin-top:16px;">
-            The redesign made visitors immediately understand
-            how Altrovia supports trial planning and analysis.
+            The game uses voice recognition as its primary input method,
+            creating a unique interactive experience that combines cognitive
+            challenges with hands-free gameplay.
           </p>
+        </div>
 
-          <div class="masonry" data-gallery="phase1">
-
-            <div class="masonry-item"
-              data-title="Lo-fi Sketch" data-medium=""
-              data-caption="">
-              <img src="images/Altrovia_Images/Old Altrovia 1.png" alt="Old Altrovia Image 1">
-              <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
+        <div class="reveal reveal-delay-1">
+          <p class="overview-label">Development</p>
+          <h2 class="overview-title">Built solo,<br>start to finish.</h2>
+          <p class="overview-body">
+            I was responsible for every aspect of the project, including:
+          </p>
+          <ul class="dev-list">
+            <li>Programming the gameplay mechanics in p5.js.</li>
+            <li>Designing and illustrating all visual assets.</li>
+            <li>Creating pixel art and sprite animations in Aseprite.</li>
+            <li>Producing cinematic camera movements and scene transitions in Adobe After Effects.</li>
+            <li>Integrating animations to communicate the game's lore and create a more immersive experience.</li>
+          </ul>
+          <div class="detail-list" style="margin-top:24px;">
+            <div class="detail-row">
+              <span class="detail-key">Role</span>
+              <span class="detail-val">Solo Developer &amp; Artist</span>
             </div>
-
-            <div class="masonry-item"
-              data-title="Lo-fi Sketch" data-medium=""
-              data-caption="">
-              <img src="images/Altrovia_Images/Old Altrovia 2.png" alt="Old Altrovia Image 2">
-              <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
+            <div class="detail-row">
+              <span class="detail-key">Tools</span>
+              <span class="detail-val">p5.js, Aseprite, Adobe After Effects</span>
             </div>
-
-            <div class="masonry-item"
-              data-title="Lo-fi Sketch" data-medium=""
-              data-caption="">
-              <img src="images/Altrovia_Images/Old Altrovia 3.png" alt="Old Altrovia Image 3">
-              <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
+            <div class="detail-row">
+              <span class="detail-key">Input</span>
+              <span class="detail-val">Speech recognition (voice-controlled)</span>
             </div>
           </div>
         </div>
@@ -763,204 +676,109 @@
   </section>
 
   <!-- ════════════════════════════════════════════════════
-       PROCESS — masonry galleries per phase
+       KEY HIGHLIGHTS
+  ════════════════════════════════════════════════════ -->
+  <section id="highlights">
+    <div class="container">
+      <h2 class="overview-title reveal" style="margin-bottom:32px;">Key <em>Highlights.</em></h2>
+      <div class="highlights-grid">
+        <div class="highlight-card reveal">
+          <div class="highlight-icon">✦</div>
+          <p class="highlight-text">Solo-developed from concept to completion.</p>
+        </div>
+        <div class="highlight-card reveal reveal-delay-1">
+          <div class="highlight-icon">✦</div>
+          <p class="highlight-text">Voice-controlled gameplay using speech recognition.</p>
+        </div>
+        <div class="highlight-card reveal">
+          <div class="highlight-icon">✦</div>
+          <p class="highlight-text">Inspired by the psychological Stroop Effect.</p>
+        </div>
+        <div class="highlight-card reveal reveal-delay-1">
+          <div class="highlight-icon">✦</div>
+          <p class="highlight-text">Original pixel art and animations created in Aseprite.</p>
+        </div>
+        <div class="highlight-card reveal">
+          <div class="highlight-icon">✦</div>
+          <p class="highlight-text">Cinematic motion graphics and transitions created in After Effects.</p>
+        </div>
+        <div class="highlight-card reveal reveal-delay-1">
+          <div class="highlight-icon">✦</div>
+          <p class="highlight-text">Custom UI, gameplay systems, and visual storytelling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════
+       VISUALS & MOTION — pixel art, cinematics, UI
   ════════════════════════════════════════════════════ -->
   <section id="process-section">
     <div class="container">
 
       <div class="process-header reveal">
-        <h2 class="overview-title" style="margin-bottom:0;">How it came <em>together.</em></h2>
-      </div>
-
-      <!-- ══ PHASE 1 ══════════════════════════════════════ -->
-      <div class="phase-block reveal">
-        <div class="phase-block reveal">
-          <div class="phase-label-row">
-            <div class="phase-num">01</div>
-            <div>
-              <h3 class="phase-title">Start with wireframes and references.</h3>
-            </div>
-          </div>
-          <p class="phase-desc">
-            We first explored low-fidelity wireframes alongside competitive 
-            references from healthcare and SaaS products. This helped us 
-            identify effective design patterns and uncover features our 
-            product was missing.
-            <br><br>
-            As the designathon lead, I organized the project timeline, 
-            coordinated team meetings, and guided our design process by 
-            leading collaborative critiques that combined the strongest 
-            ideas from each wireframe into a unified direction.
-            <br><br>
-            The goal was to communicate Altrovia's value within the first 
-            few seconds of landing on the page. The selected direction 
-            prioritized <strong>visual examples over dense text</strong>, making the 
-            product easier to understand at a glance.
-
-          </p>
-
-        <!--
-          CONFIG: Add images for this phase.
-          Each .masonry-item needs:
-            data-title   : image title in lightbox
-            data-medium  : subtitle (e.g. "User Interview Notes")
-            data-caption : description shown in the panel
-            data-tags    : comma-separated
-
-          Replace .img-placeholder with <img src="..." alt="...">
-          Heights on placeholders control the masonry puzzle effect —
-          vary them (200px, 300px, 400px etc.) for visual rhythm.
-        -->
-        <div class="masonry" data-gallery="phase1">
-
-          <div class="masonry-item"
-            data-title="Lo-fi Sketch" data-medium=""
-            data-caption="Initial sketch shows the homepage structure and feature hierarchy, 
-            inspired by tech and pharmaceutical design patterns. Big slogan on top to communicate 
-            value, followed by a clear call to action. Below it, a logo carousel to quickly establish 
-            credibility and trust.">
-            <img src="images/Altrovia_Images/Altrovia_Wireframe1.png" alt="Altrovia ">
-            <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
-          </div>
-
-          <div class="masonry-item"
-            data-title="Lo-fi Wireframe 1" data-medium=""
-            data-caption="The initial wireframe explores how we can 
-            visualize Altrovia as an all-encompassing tool for research. 
-            We liked the use of motion to add not only to the page but 
-            also a quick way to visually share more information. However, 
-            the design doesn't embody the minimalist and trustworthy design 
-            principles that we hope to emulate from our references. ">
-            <img src="images/Altrovia_Images/Altrovia_Wireframe3.png" alt="Altrovia wireframe 1">
-            <div class="overlay"><div class="overlay-title">Wireframe 1</div></div>
-          </div>
-
-          <div class="masonry-item"
-            data-title="Lo-fiWireframe 2" data-medium=""
-            data-caption="A variation of the previous wireframe.">
-            <img src="images/Altrovia_Images/Altrovia_Wireframe4.png" alt="Altrovia wireframe 2">
-            <div class="overlay"><div class="overlay-title">Wireframe 2</div></div>
-          </div>
-
-          <div class="masonry-item"
-            data-title="Lo-fi Wireframe 3" data-medium=""
-            data-caption="This variation explores more pharmaceutical themes, utilizing more blue and graphics to establish a familiar sense of trust. In this design, we appreciate the card carousel displaying information in a more digestible way for users. In future iterations, we continue to break down information into separate cars to prevent users from feeling overwhelmed but lean more into modern tech ethics.">
-            <img src="images/Altrovia_Images/Altrovia_Wireframe2.png" alt="Altrovia wireframe 3">
-            <div class="overlay"><div class="overlay-title">Wireframe 3</div></div>
-          </div>
-
-          <!--
-          <div class="masonry-item"
-            data-title="HMW Workshop Notes" data-medium="Synthesis · FigJam"
-            data-caption="'How Might We' session with the full team. 80+ prompts reduced to 12 actionable directions. The winning frame: 'curiosity over correction'."
-            data-tags="ideation,workshop,synthesis">
-            <div class="img-placeholder" style="height:200px;background:linear-gradient(160deg,var(--green),var(--mauve));">💡</div>
-            <div class="overlay"><div class="overlay-title">HMW Workshop Notes</div></div>
-          </div>
-          -->
-
+        <div class="process-header-left">
+          <h2 class="overview-title" style="margin-bottom:0;">Visuals &amp; <em>motion.</em></h2>
         </div>
       </div>
 
-      <!-- ══ PHASE 2 ══════════════════════════════════════ -->
-      <div class="phase-block reveal">
-        <div class="phase-label-row">
-          <div class="phase-num">02</div>
-          <div>
-            <h3 class="phase-title">Refine, simplify and repeat.</h3>
-          </div>
+      <p class="phase-desc reveal" style="max-width:640px;margin-bottom:32px;">
+        Every visual in Color Clash — the pixel art, the sprite animations, and the
+        cinematic transitions that carry the game's lore — was designed, illustrated,
+        and animated by hand. Click any tile below for a closer look.
+      </p>
+
+      <!--
+        CONFIG: Replace these placeholder tiles with real screenshots:
+        <div class="masonry-item" data-title="..." data-medium="..." data-caption="..." data-tags="...">
+          <img src="images/ColorClash/your-image.png" alt="...">
+          <div class="overlay"><div class="overlay-title">...</div></div>
         </div>
-        <p class="phase-desc">
-          Due to the designathon's time constraints, we quickly refined 
-          our strongest wireframes instead of exploring entirely new concepts. 
-          We adopted a clean, modern visual style inspired by fintech products, 
-          using a blue color palette to reinforce trust and credibility. Rather 
-          than incorporating flashy animations, we prioritized a simple, 
-          distraction-free interface that helped users <strong> finish their tasks 
-          efficiently</strong>. This approach aligned with the needs of our target audience, 
-          who value clarity and speed over visual effects, but also embodying trustworthiness
-          that pharmaceutical companies are known for.
+      -->
+      <div class="masonry" data-gallery="colorclash-visuals">
 
-        </p>
-
-        <div class="masonry" data-gallery="phase2">
-
-          <div class="masonry-item"
-            data-title="Wireframe 4" data-medium="Design · Paper"
-            data-caption="This wireframe clearly emphasis on trust through recognizable i
-            ndustry partners and large hero section established the product's purpose immediately.
-            However, the visual hierarchy felt unbalanced, making it unclear where users should focus first."
-            data-tags="">
-            <img src="images/Altrovia_Images/Iteration 1.png" alt="Altrovia wireframe 4">
-            <div class="overlay"><div class="overlay-title">Wireframe 4</div></div>
-          </div>
-
-          <div class="masonry-item"
-            data-title="Wireframe 5" data-medium="Design · Paper"
-            data-caption="We introduced a navigation path graphic to reinforce the idea 
-            of guiding researchers through the clinical trial workflow. The feature cards 
-            lacked enough detail to communicate functionality. Similary, some illustrations 
-            prioritized aesthetics over explaining the product."
-            data-tags="">
-            <img src="images/Altrovia_Images/Iteration 2.png" alt="Altrovia wireframe 5">
-            <div class="overlay"><div class="overlay-title">Wireframe 5</div></div>
-          </div>
-
-          <div class="masonry-item"
-            data-title="Wireframe 6" data-medium="Design · Paper"
-            data-caption="
-            Instead of abstract graphics, we showcased realistic interface mockups 
-            to demonstrate how users would organize data, benchmark studies, 
-            and receive AI-driven recommendations. This reduced ambiguity by showing workflows instead of describing them.
-            It can may also feel overwhelming without progressive disclosure."
-            
-            data-tags="">
-            <img src="images/Altrovia_Images/Iteration 3.png" alt="Altrovia wireframe 6">
-            <div class="overlay"><div class="overlay-title">Wireframe 6</div></div>
-          </div>
-
+        <div class="masonry-item reveal"
+          data-title="Pixel Art & Sprites" data-medium="Illustration · Aseprite"
+          data-caption="Original pixel art and sprite animations for every character and color prompt, hand-drawn frame by frame in Aseprite."
+          data-tags="pixel art,sprites,aseprite">
+          <div class="img-placeholder" style="height:360px;background:linear-gradient(150deg,var(--mauve),var(--purple));">🎨</div>
+          <div class="overlay"><div class="overlay-title">Pixel Art &amp; Sprites</div></div>
         </div>
+
+        <div class="masonry-item reveal reveal-delay-1"
+          data-title="Cinematic Transitions" data-medium="Motion · After Effects"
+          data-caption="Cinematic camera movements and scene transitions produced in Adobe After Effects to carry the game's lore between levels."
+          data-tags="motion,cinematics,after effects">
+          <div class="img-placeholder" style="height:260px;background:linear-gradient(155deg,var(--green),var(--blue));">🎬</div>
+          <div class="overlay"><div class="overlay-title">Cinematic Transitions</div></div>
+        </div>
+
+        <div class="masonry-item reveal"
+          data-title="Voice-Controlled Gameplay" data-medium="Design · p5.js"
+          data-caption="The core loop: a spoken color command appears in mismatched text, and players must respond to what they hear, not what they read — powered by the Web Speech API."
+          data-tags="gameplay,voice,p5.js">
+          <div class="img-placeholder" style="height:300px;background:linear-gradient(160deg,var(--orange),var(--mauve));">🗣️</div>
+          <div class="overlay"><div class="overlay-title">Voice-Controlled Gameplay</div></div>
+        </div>
+
+        <div class="masonry-item reveal reveal-delay-1"
+          data-title="UI & HUD Design" data-medium="Visual Design · p5.js"
+          data-caption="Custom UI and HUD elements — score, prompt, and feedback states — designed to stay legible during fast, hands-free play."
+          data-tags="ui,hud,design">
+          <div class="img-placeholder" style="height:220px;background:linear-gradient(145deg,var(--olive),var(--green));">🧩</div>
+          <div class="overlay"><div class="overlay-title">UI &amp; HUD Design</div></div>
+        </div>
+
+        <div class="masonry-item reveal"
+          data-title="Lore & World Illustrations" data-medium="Illustration · Aseprite"
+          data-caption="Supplementary illustrations used to introduce the game's world and lore between levels, reinforcing the story beyond the core mechanic."
+          data-tags="lore,illustration,worldbuilding">
+          <div class="img-placeholder" style="height:320px;background:linear-gradient(150deg,var(--blue),var(--purple));">📖</div>
+          <div class="overlay"><div class="overlay-title">Lore &amp; World Illustrations</div></div>
+        </div>
+
       </div>
 
-      <!-- ══ PHASE 3 ══════════════════════════════════════ -->
-      <div class="phase-block reveal">
-        <div class="phase-label-row">
-          <div class="phase-num">03</div>
-          <div>
-            <h3 class="phase-title">Combine strengths and polish the final product.</h3>
-          </div>
-        </div>
-        <p class="phase-desc">
-          Finally, we <strong>combined the strongest ideas</strong> from each concept, polished the
-          designs, and delivered a final prototype that makes clinical trial
-          planning easier to understand and easier to engage with.
-        </p>
-
-        <div class="supporting-image-placeholder">
-            <img src="images/New Altrovia Demo.gif" alt="Altrovia demo" />
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="takeaways">
-    <div class="container">
-      <div class="overview-grid">
-        <div class="reveal">
-          <p class="overview-label">What I Learned</p>
-          <h2 class="overview-title">Key takeaways from the project.</h2>
-          <ul class="reflection-list">
-            <li>Working under tight time constraints required clear tradeoffs and fast decision-making.</li>
-            <li>Balancing user needs with business goals kept the product both useful and viable.</li>
-            <li>Rapid iteration helped uncover usability gaps before the final launch.</li>
-            <li>Collaborating in a hackathon taught me how to align ideas quickly and decisively.</li>
-            <li>This project shaped a more efficient, research-informed design process.</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -970,7 +788,7 @@
   <div class="next-project">
     <div class="container">
       <p class="next-label">Next Project</p>
-      <h2 class="next-title"><em>One</em>Handler — Campus Carrying Solution</h2>
+      <h2 class="next-title">OneHander — <em>Campus Navigation</em> Solution</h2>
       <a href="onehandler.html" class="btn btn-primary">View Project →</a>
     </div>
   </div>

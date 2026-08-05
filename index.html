@@ -21,10 +21,10 @@
   <nav>
     <a href="#" class="nav-logo">KZ.</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
       <li><a href="#design">Design</a></li>
       <li><a href="#drawing">Drawing</a></li>
-      <li><a href="#contact">Get in touch!</a></li>
+      <!-- <li><a href="#games-featured">Games</a></li> -->
+      <li><a href="#great">Get in touch!</a></li>
     </ul>
     <div class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -33,11 +33,11 @@
 
   <!-- Mobile dropdown -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about"   class="mob-link">About</a>
     <a href="#design" class="mob-link">Design</a>
     <a href="#drawing" class="mob-link">Drawing</a>
+    <!-- <a href="#games-featured" class="mob-link">Games</a> -->
     <div class="mob-divider"></div>
-    <a href="#contact" class="mob-link mob-cta">Get in touch! ✦</a>
+    <a href="#great" class="mob-link mob-cta">Get in touch! ✦</a>
   </div>
 
   <!-- ======== HERO ======== -->
@@ -63,7 +63,7 @@
 
         <div class="hero-actions reveal reveal-delay-3">
           <a href="#design"    class="btn btn-primary">View Design &rarr;</a>
-          <a href="#contact" class="btn btn-outline">Say Hello</a>
+          <a href="#great" class="btn btn-outline">Say Hello</a>
         </div>
       </div>
 
@@ -116,9 +116,9 @@
         <a href="Altrovia.html" class="project-card card-1 reveal" style="text-decoration: none; color: inherit;">
           <div class="card-img"><span><img src="images\Altrovia_Images\Altrovia_HomePage.png" alt="Altrovia"></span></div>
           <div class="card-body">
-            <p class="card-cat">Website · Design Competition</p>
-            <h3 class="card-title">Altrovia — Medicine Information Design</h3>
-            <p class="card-desc">Collaborated with 2 college students to redesign a website for Altrovia, a medicine company. Focused on making complex medical information intuitive and easy to digest for users.</p>
+            <p class="card-cat">Designathon </p>
+            <h3 class="card-title">Altrovia — Website Redesign </h3>
+            <p class="card-desc">Making complex medical information easy to digest for users.</p>
           </div>
           <div class="card-arrow">↗</div>
         </a>
@@ -126,14 +126,14 @@
         <a href="onehandler.html" class="project-card card-2 reveal reveal-delay-1">
           <div class="card-img"><span><img src="images/OneHander.png" alt="OneHander"></span></div>
           <div class="card-body">
-            <p class="card-cat">Product Design · Human-Centered Design</p>
-            <h3 class="card-title">OneHander — Campus Navigation Solution</h3>
-            <p class="card-desc">Designed a product solution for students struggling to hold food, drinks, snacks, and utensils while opening doors to navigate campus. Created in Human-Centered Product Design class.</p>
+            <p class="card-cat">Human-Centered Design Class</p>
+            <h3 class="card-title">OneHander — Accessible Food Carrier</h3>
+            <p class="card-desc">Improving how students carry food, drinks, and utensils while navigating campus.</p>
           </div>
           <div class="card-arrow">↗</div>
         </a>
 
-        <!-- <div class="project-card card-3 reveal reveal-delay-1">
+        <!-- <div class="project-card card-6 reveal reveal-delay-1">
           <div class="card-img"><span>📊</span></div>
           <div class="card-body">
             <p class="card-cat">Dashboard · Data Viz</p>
@@ -166,6 +166,40 @@
       </div>
     </div>
   </section>
+
+  <!-- ======== FEATURED GAMES ======== -->
+  <!--
+  <section id="games-featured">
+    <div class="container">
+      <div class="work-header">
+        <div>
+          <h2 class="section-title"><em></em>Games</em> I've made.</h2>
+        </div>
+        <a href="VideoGames.html" class="btn btn-dark">All Games &rarr;</a>
+      </div>
+
+      <!-- CONFIG: replace the placeholder below with a real screenshot/key-art <img> once available -->
+        <div class="games-grid" id="featuredGamesGrid">
+        <a href="ColorClash.html" class="project-card reveal reveal-delay-1">
+          <div class="card-img" style="background:linear-gradient(150deg,var(--green),var(--olive));">
+            <span style="display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--font-title);color:var(--cream);">
+              <span style="font-size:2.6rem;">🗣️</span>
+              <span style="font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;">Color Clash</span>
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="card-cat">Person Project</p>
+            <h3 class="card-title">Color Clash — Voice-Controlled Game</h3>
+            <div class="card-desc-wrap"><div class="card-desc-inner">
+              <p class="card-desc">A voice-controlled puzzle game inspired by the Stroop Effect.</p>
+            </div></div>
+          </div>
+          <div class="card-arrow">↗</div>
+        </a>
+
+    </div>
+  </section>
+  -->
 
   <!-- ======== DRAWING ======== -->
   <section id="drawing">
@@ -215,6 +249,7 @@
 
   <!-- ======== CONTACT ======== -->
   <section id="contact">
+    <div id="great"></div>
     <div class="container">
       <div class="contact-inner">
 
@@ -295,6 +330,44 @@
     </div>
   </footer>
 
+  <script src="js/games-data.js"></script>
+  <script>
+  /* ══════════════════════════════════════════════════════
+     FEATURED GAMES — rendered from the shared GAMES array
+     (js/games-data.js). Runs before main.js so the scroll-
+     reveal / hover behavior applies to the injected cards.
+  ══════════════════════════════════════════════════════ */
+  (function () {
+    const esc = (s) => String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+    function card(game, i) {
+      const techTags = game.technologies
+        .map(t => `<span class="fg-tech-tag">${esc(t)}</span>`)
+        .join("");
+      const revealDelay = i === 0 ? "" : ` reveal-delay-${Math.min(i, 3)}`;
+
+      return `
+        <a href="VideoGames.html#${esc(game.slug)}" class="project-card reveal${revealDelay}">
+          <div class="card-img"><img src="${esc(game.thumbnail)}" alt="${esc(game.title)}"></div>
+          <div class="card-body">
+            <p class="card-cat">${esc(game.genre)} · ${esc(game.year)}</p>
+            <h3 class="card-title">${esc(game.title)}</h3>
+            <p class="card-desc">${esc(game.subtitle)}</p>
+            <div class="fg-tech-row">${techTags}</div>
+            <div class="fg-meta-row">
+              <span class="fg-year">${esc(game.year)}</span>
+              <span class="fg-view-link">View Project</span>
+            </div>
+          </div>
+          <div class="card-arrow">↗</div>
+        </a>`;
+    }
+
+    document.getElementById("featuredGamesGrid").innerHTML =
+      GAMES.map(card).join("");
+  })();
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
