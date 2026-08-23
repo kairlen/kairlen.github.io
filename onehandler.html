@@ -4,7 +4,7 @@ This is a template. Replace all CONFIG markers with your actual content.
 Paste this into a new file: onehandler.html
 Then link to it from your work cards on index.html
 -->
-
+          
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +68,32 @@ Then link to it from your work cards on index.html
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: end;
+      align-items: start;
       padding-bottom: 56px;
+    }
+    .project-title-column { display: flex; flex-direction: column; align-items: flex-start; }
+    .project-title { margin-bottom: 28px; }
+    .hero-image-column { display: flex; flex-direction: column; align-items: flex-start; }
+    .hero-image-column .project-tag-row { margin-top: 28px; }
+    .hero-image-slot {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      border: 1px dashed rgba(245,237,214,.35);
+      border-radius: 14px;
+      color: rgba(245,237,214,.55);
+      text-align: center;
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+    .hero-image-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
     }
     .project-title {
       font-family: 'Playfair Display', serif;
@@ -87,6 +111,25 @@ Then link to it from your work cards on index.html
       color: rgba(245,237,214,.65);
       margin-bottom: 28px;
     }
+    .hero-details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(245,237,214,.14);
+    }
+    .hero-detail { display: flex; flex-direction: column; gap: 6px; }
+    .hero-detail-key {
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(245,237,214,.45);
+    }
+    .hero-detail-value {
+      font-size: .9rem;
+      color: #F5EDD6;
+      line-height: 1.55;
+    }
     .project-tag {
       display: inline-block;
       padding: 6px 16px; border-radius: 999px;
@@ -100,6 +143,86 @@ Then link to it from your work cards on index.html
       border-color: rgba(245,237,214,.2);
       color: rgba(245,237,214,.55);
     }
+    .solution-placeholder,
+    .market-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      padding: 24px;
+      border: 1px dashed rgba(26,26,18,.22);
+      border-radius: 14px;
+      background: #EDE5CC;
+      color: #5C5248;
+      text-align: center;
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+    .solution-placeholder img,
+    .market-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 24px;
+    }
+    .pros-cons-column { padding-right: 24px; }
+    .pros-cons-column + .pros-cons-column {
+      padding-right: 0;
+      padding-left: 24px;
+      border-left: 1px solid rgba(26,26,18,.14);
+    }
+    .pros-cons-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: #1A1A18;
+      margin-bottom: 12px;
+    }
+    .pros-cons-list {
+      min-height: 108px;
+      color: #5C5248;
+      font-size: .88rem;
+      line-height: 1.7;
+    }
+    .pros-cons .research-insight {
+      padding-left: 18px;
+    }
+    .pros-cons .research-insight::before {
+      content: '•';
+      left: 0;
+      top: 0;
+      font-size: .9rem;
+    }
+    .persona-image-slot {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      padding: 20px;
+      border: 1px dashed rgba(26,26,18,.22);
+      border-radius: 14px;
+      background: #F5EDD6;
+      color: #5C5248;
+      text-align: center;
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+    .persona-image-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .research-content { max-width: 760px; margin: 0 auto; }
+    .research-content > .overview-grid { margin-bottom: 40px; }
 
     .project-stats {
       display: grid;
@@ -126,7 +249,18 @@ Then link to it from your work cards on index.html
       color: rgba(245,237,214,.35);
     }
 
-    #overview { background: #F5EDD6; padding: 80px 0; }
+    /* Groups "Students can't carry everything at once" with its nested
+       Secondary Research + How Might We sub-sections so they read as one
+       continuous block instead of separate top-level sections. */
+    .problem-context { background: #F5EDD6; }
+    .problem-subsection {
+      background: transparent;
+      padding: 56px 0;
+      border-top: 1px solid rgba(26,26,18,.08);
+    }
+    #secondary-research-section { background: #EDE5CC; }
+
+    #overview { background: transparent; padding: 80px 0 56px; }
     .overview-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -165,6 +299,7 @@ Then link to it from your work cards on index.html
     .detail-val { font-size: .9rem; color: #1A1A18; line-height: 1.55; }
 
     #research-section { background: #EDE5CC; padding: 80px 0; }
+    #how-might-we-section .research-method { background: #EDE5CC; }
     .research-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -189,20 +324,24 @@ Then link to it from your work cards on index.html
       margin-bottom: 16px;
     }
     .research-insight {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 14px;
-      font-size: .9rem;
-      line-height: 1.65;
-      color: #5C5248;
-    }
-    .research-insight::before {
-      content: "💡";
-      flex-shrink: 0;
-      font-size: 1rem;
-    }
+    display: block;
+    margin-bottom: 14px;
+    padding-left: 28px;
+    position: relative;
+    font-size: .9rem;
+    line-height: 1.65;
+    color: #5C5248;
+  }
 
-    #define-section { background: #F5EDD6; padding: 80px 0; }
+  .research-insight::before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+  }
+
+    #define-section { background: #EDE5CC; padding: 80px 0; }
     .define-content {
       display: grid;
       grid-template-columns: 1fr;
@@ -252,10 +391,11 @@ Then link to it from your work cards on index.html
       color: #5C5248;
     }
 
-    #ideation-section { background: #EDE5CC; padding: 80px 0; }
+    #ideation-section { background: #F5EDD6; padding: 80px 0; }
     .ideation-intro {
       margin-bottom: 48px;
-      max-width: 760px;
+      width: 100%;
+      max-width: 680px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -265,7 +405,8 @@ Then link to it from your work cards on index.html
       gap: 24px;
       align-items: center;
       margin-bottom: 60px;
-      max-width: 760px;
+      width: 100%;
+      max-width: 680px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -295,7 +436,7 @@ Then link to it from your work cards on index.html
       margin-bottom: 12px;
     }
 
-    #prototype-section { background: #F5EDD6; padding: 80px 0; }
+    #prototype-section { background: #EDE5CC; padding: 80px 0; }
     #prototype-section > .container {
       max-width: 760px;
     }
@@ -312,9 +453,17 @@ Then link to it from your work cards on index.html
       border-radius: 0;
     }
 
-    #reflection-section { background: #2C4A3E; color: #F5EDD6; padding: 80px 0; }
+    #reflection-section { background: #F5EDD6; color: #1A1A18; padding: 80px 0; }
     #reflection-section > .container {
       max-width: 760px;
+    }
+    #reflection-section .overview-title { color: #1A1A18 !important; }
+    #reflection-section .overview-label { color: #E8732A !important; }
+    #reflection-section > .container > div:last-child {
+      border-top-color: rgba(26,26,18,.14) !important;
+    }
+    #reflection-section > .container > div:last-child p:last-child {
+      color: #5C5248 !important;
     }
     .reflection-grid {
       display: grid;
@@ -323,8 +472,8 @@ Then link to it from your work cards on index.html
       margin-top: 40px;
     }
     .reflection-point {
-      background: rgba(245,237,214,.08);
-      border: 1px solid rgba(245,237,214,.15);
+      background: #EDE5CC;
+      border: 1px solid rgba(26,26,18,.1);
       border-radius: 18px;
       padding: 28px;
     }
@@ -337,7 +486,7 @@ Then link to it from your work cards on index.html
     .reflection-point p {
       font-size: .88rem;
       line-height: 1.75;
-      color: rgba(245,237,214,.75);
+      color: #5C5248;
     }
 
     .next-project {
@@ -362,6 +511,17 @@ Then link to it from your work cards on index.html
       .define-content { grid-template-columns: 1fr; gap: 40px; }
       .sketch-row { grid-template-columns: 1fr; }
       .reflection-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero-details { grid-template-columns: 1fr; }
+      .pros-cons { grid-template-columns: 1fr; gap: 24px; }
+      .pros-cons-column,
+      .pros-cons-column + .pros-cons-column {
+        padding: 0 0 24px;
+        border-left: none;
+        border-bottom: 1px solid rgba(26,26,18,.14);
+      }
+      .pros-cons-column:last-child { padding-bottom: 0; border-bottom: none; }
     }
     @media (max-width: 640px) {
       .project-stats { grid-template-columns: repeat(2, 1fr); }
@@ -399,21 +559,47 @@ Then link to it from your work cards on index.html
 
       <a href="index.html#work" class="back-link">Back to Work</a>
 
-      <div class="project-meta-strip">
+      <!-- <div class="project-meta-strip">
         <span class="project-cat">Human-Centered Product Design</span>
         <div class="meta-divider"></div>
         <span class="project-year">2025</span>
-      </div>
+      </div> -->
 
       <div class="project-title-wrap">
-        <div>
+        <div class="project-title-column">
           <h1 class="project-title"><em>One</em>Handler</h1>
+          <p class="project-blurb">
+            College students often struggle to carry a to-go meal and drink at the 
+            same time, especially during busy meal times when they need a free hand 
+            to open doors, use their phones, or carry other belongings. OneHandler 
+            is a <strong>one-handed food carrier</strong> that connects a to-go box and drink into 
+            a single, easy-to-carry solution.
+          </p>
+          <div class="hero-details">
+            <div class="hero-detail">
+              <span class="hero-detail-key">Timeline</span>
+              <span class="hero-detail-value">Oct 2026 – Dec 2026</span>
+            </div>
+            <div class="hero-detail">
+              <span class="hero-detail-key">Role</span>
+              <span class="hero-detail-value">Product Designer/Researcher</span>
+            </div>
+            <div class="hero-detail">
+              <span class="hero-detail-key">Type</span>
+              <span class="hero-detail-value">Class</span>
+            </div>
+            <div class="hero-detail">
+              <span class="hero-detail-key">Team</span>
+              <span class="hero-detail-value">Myself</span>
+            </div>
+          </div>
         </div>
         
-        <div class="project-blurb-col">
-          <p class="project-blurb">
-            A <strong>one-handed food carrier</strong> that connects a to-go box and drink together, solving a real campus pain point. Designed through observation, interviews, and rapid prototyping to reduce spills and free up student hands during busy meal times.
-          </p>
+        <div class="project-blurb-col hero-image-column">
+          <div class="hero-image-slot">
+            Replace this area with a project image.
+            <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="OneHandler project"> -->
+          </div>
           <div class="project-tag-row scrollable-x">
             <span class="project-tag">Product Design</span>
             <span class="project-tag">Physical Prototype</span>
@@ -430,7 +616,7 @@ Then link to it from your work cards on index.html
         </div>
         <div class="project-stat">
           <div class="stat-val">3</div>
-          <div class="stat-lbl">Competitor Analysis</div>
+          <div class="stat-lbl">Market Research</div>
         </div>
         <div class="project-stat">
           <div class="stat-val">5+</div>
@@ -445,110 +631,210 @@ Then link to it from your work cards on index.html
     </div>
   </header>
 
-  <!-- THE PROBLEM -->
-  <section id="overview">
-    <div class="container">
-      <div class="overview-grid">
+  <!-- THE PROBLEM (with its nested Secondary Research + How Might We sub-sections) -->
+  <div class="problem-context" id="problem-context">
 
-        <div class="reveal">
-          <h2 class="overview-title">Students can't carry <em>everything</em> at once.</h2>
-          <p class="overview-body">
-            Every day, college students juggle to-go boxes and drinks from the dining hall, 
-            often spilling items while trying to keep their hands free. It's also a safety issue!
-          </p>
+    <!-- THE PROBLEM -->
+    <section id="overview">
+      <div class="container">
+        <div class="overview-grid">
+
+          <div class="reveal">
+            <h2 class="overview-title">Students can't carry <em>everything</em> at once.</h2>
+            <p class="overview-body">
+              Every day, college students juggle to-go boxes and drinks from the dining hall,
+              often spilling items while trying to keep their hands free. It's also a safety issue!
+            </p>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <div class="detail-list">
+              <div class="detail-row">
+                <span class="detail-key">Pain Point 1</span>
+                <span class="detail-val">Students use both hands to carry a box + drink, leaving <strong>no hands</strong> for doors, phones, or navigation.</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-key">Pain Point 2</span>
+                <span class="detail-val"><strong>Drinks spill</strong> when opening heavy doors or walking through crowded spaces.</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-key">Pain Point 3</span>
+                <span class="detail-val">Current workarounds (stacking, balancing on arms) feel <strong>rushed and unsafe</strong> during peak lunch times.</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-key"><em>Opportunity</em></span>
+                <span class="detail-val"><em>A simple connector that keeps food and drink together and secure in one hand.</em></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECONDARY RESEARCH (nested under "Students can't carry everything at once") -->
+    <section id="secondary-research-section" class="problem-subsection">
+      <div class="container">
+
+        <div class="overview-grid">
+          <div class="reveal">
+            <h2 class="overview-title">Secondary <em>Research</em></h2>
+          </div>
         </div>
 
-        <div class="reveal reveal-delay-1">
-          <div class="detail-list">
-            <div class="detail-row">
-              <span class="detail-key">Pain Point 1</span>
-              <span class="detail-val">Students use both hands to carry a box + drink, leaving no hands for doors, phones, or navigation.</span>
+        <div class="research-grid">
+
+          <div class="research-method reveal reveal-delay-1">
+            <h3 class="research-method-title">Existing Solutions</h3>
+            <div class="solution-placeholder">
+              Replace this area with an image of the existing solution.
+              <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="Existing solution"> -->
             </div>
-            <div class="detail-row">
-              <span class="detail-key">Pain Point 2</span>
-              <span class="detail-val">Drinks spill when opening heavy doors or walking through crowded spaces.</span>
+            <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
+              Evaluated existing solutions: cardboard carriers, tote bags, Chinese takeout boxes.
+            </p>
+            <div class="pros-cons">
+              <div class="pros-cons-column">
+                <h4 class="pros-cons-title">Pros</h4>
+                <div class="pros-cons-list">
+                  <!-- Add your own pros here. -->
+                </div>
+              </div>
+              <div class="pros-cons-column">
+                <h4 class="pros-cons-title">Cons</h4>
+                <div class="pros-cons-list">
+                  <div class="research-insight">Carriers hold everything but have uncomfortable handles and create waste.</div>
+                  <div class="research-insight">Tote bags require setup time and don't secure drinks against spills.</div>
+                  <div class="research-insight">Gap: no solution that's quick, one-handed, and doesn't feel like extra work.</div>
+                </div>
+              </div>
             </div>
-            <div class="detail-row">
-              <span class="detail-key">Pain Point 3</span>
-              <span class="detail-val">Current workarounds (stacking, balancing on arms) feel rushed and unsafe during peak lunch times.</span>
+          </div>
+
+          <div class="research-method reveal reveal-delay-2">
+            <h3 class="research-method-title">Tote Bags</h3>
+            <div class="solution-placeholder">
+              Replace this area with an image of the additional solution.
+              <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="Additional existing solution"> -->
             </div>
-            <div class="detail-row">
-              <span class="detail-key">Opportunity</span>
-              <span class="detail-val">A simple connector that keeps food and drink together and secure in one hand.</span>
+            <div class="pros-cons">
+              <div class="pros-cons-column">
+                <h4 class="pros-cons-title">Pros</h4>
+                <div class="pros-cons-list">
+                  <div class="research-insight">Reusable for repeated trips.</div>
+                  <div class="research-insight">Can carry multiple items.</div>
+                  <div class="research-insight">Easy to store when not in use.</div>
+                </div>
+              </div>
+              <div class="pros-cons-column">
+                <h4 class="pros-cons-title">Cons</h4>
+                <div class="pros-cons-list">
+                  <div class="research-insight">Requires setup before carrying items.</div>
+                  <div class="research-insight">Doesn't secure drinks against spills.</div>
+                  <div class="research-insight">Adds friction to the carrying experience.</div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="research-method reveal reveal-delay-2">
+            <h3 class="research-method-title">Market Context</h3>
+            <div class="market-placeholder">
+              Replace this area with an image showing the market context.
+              <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="Market context"> -->
+            </div>
+            <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
+              The grab-and-go container market is growing fast.
+            </p>
+            <div class="research-insight">Global market projected to grow from $13.9B (2024) to $18.8B by 2034.</div>
+            <div class="research-insight">Students represent a high-volume, design-conscious segment of this market.</div>
+            <div class="research-insight">Sustainability matters: students prefer recyclable/compostable materials over plastic.</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESEARCH OBJECTIVE (nested under "Students can't carry everything at once") -->
+    <section id="how-might-we-section" class="problem-subsection">
+      <div class="container">
+
+        <div class="overview-grid">
+          <div class="reveal reveal-delay-1">
+            <h2 class="overview-title">Research Objective</h2>
+            <p class="overview-body">
+              Understand how college students currently carry food and drinks 
+              around campus, the challenges they experience, and what factors 
+              influence how they choose to carry their meals.
+            </p>
+          </div>
+        </div>
+
+        <div class="research-grid">
+          <div class="research-method reveal reveal-delay-1">
+            <h3 class="research-method-title">Field Observation</h3>
+            <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
+              Spent time in the dining hall watching how students actually carry food — not how they should.
+            </p>
+            <div class="research-insight">Students stack containers and use their body or arms for extra support when carrying food.</div>
+            <div class="research-insight">Students use different fingers to hold multiple small items (drink, utensil, snack bar) at once.</div>
+            <div class="research-insight">Navigation becomes a challenge in narrow, crowded pathways when carrying multiple items.</div>
+
+            <div class="sketch-image" style="background:linear-gradient(135deg, #948BAA, #A9AC83); min-height:400px; display:flex; align-items:center; justify-content:center; color:rgba(26,26,18,.3); font-size:3rem;">
+              <img src="images/kimmel.jpg" alt="Kimmel Dining Hall" style="max-width:100%; max-height:100%;">
+            </div>
+          </div>
+
+          <div class="research-method reveal reveal-delay-2">
+            <h3 class="research-method-title">User Interviews</h3>
+            <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
+              <strong>Participants:</strong>
+              18–22-year-old NYU students studying Biology, Psychology, Computer Science, and other majors.<br><br>
+
+              <strong>Recruitment:</strong>
+              I recruited friends and classmates at NYU who regularly eat at dining halls while
+              moving between classes.<br><br>
+
+              <strong>Why them?</strong>
+              I chose students because they frequently move through crowded campus spaces, open doors while
+              carrying belongings, and have to decide whether bringing a drink or snack is worth the inconvenience.
+            </p>
+
+            <div class="sketch-image" style="background:linear-gradient(135deg, #948BAA, #A9AC83); min-height:400px; display:flex; align-items:center; justify-content:center; color:rgba(26,26,18,.3); font-size:3rem;">
+              <img src="images/holding drink and box.jpg" alt="Student holding a drink and a box" style="max-width:100%; max-height:100%;">
+            </div>
+
+            <br>
+            <h3 class="research-method-title">Findings</h3>
+            <div class="research-insight">Students often skip grabbing drinks or snacks because <strong>"it's hard to carry everything."</strong></div>
+            <div class="research-insight">Spills happen most when opening doors or walking through <strong>crowded spaces</strong>.</div>
+            <div class="research-insight">Students prefer <strong>reusable solutions</strong> but only if they don't add friction to the experience.</div>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- RESEARCH -->
-  <section id="research-section">
-    <div class="container">
-
-      <div class="reveal">
-        <h2 class="overview-title">How We Understood the <em>Problem</em></h2>
-      </div>
-
-      <div class="research-grid">
-
-        <div class="research-method reveal reveal-delay-1">
-          <h3 class="research-method-title">Observation</h3>
-          <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
-            Spent time in the dining hall watching how students actually carry food — not how they should.
-          </p>
-          <div class="research-insight">Students stack containers and use their body or arms for extra support when carrying food.</div>
-          <div class="research-insight">Students use different fingers to hold multiple small items (drink, utensil, snack bar) at once.</div>
-          <div class="research-insight">Navigation becomes a challenge in narrow, crowded pathways when carrying multiple items.</div>
-        </div>
-
-        <div class="research-method reveal reveal-delay-2">
-          <h3 class="research-method-title">User Interviews</h3>
-          <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
-            Talked to students about their dining habits and pain points.
-          </p>
-          <div class="research-insight">Students often skip grabbing drinks or snacks because "it's too hard to carry everything."</div>
-          <div class="research-insight">Spills happen most when opening doors or walking through crowded spaces.</div>
-          <div class="research-insight">Students prefer reusable solutions but only if they don't add friction to the experience.</div>
-        </div>
-
-        <div class="research-method reveal reveal-delay-1">
-          <h3 class="research-method-title">Competitor Analysis</h3>
-          <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
-            Evaluated existing solutions: cardboard carriers, tote bags, Chinese takeout boxes.
-          </p>
-          <div class="research-insight">Carriers hold everything but have uncomfortable handles and create waste.</div>
-          <div class="research-insight">Tote bags require setup time and don't secure drinks against spills.</div>
-          <div class="research-insight">Gap: no solution that's quick, one-handed, and doesn't feel like extra work.</div>
-        </div>
-
-        <div class="research-method reveal reveal-delay-2">
-          <h3 class="research-method-title">Market Context</h3>
-          <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
-            The grab-and-go container market is growing fast.
-          </p>
-          <div class="research-insight">Global market projected to grow from $13.9B (2024) to $18.8B by 2034.</div>
-          <div class="research-insight">Students represent a high-volume, design-conscious segment of this market.</div>
-          <div class="research-insight">Sustainability matters: students prefer recyclable/compostable materials over plastic.</div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
+  </div>
 
   <!-- DEFINE -->
   <section id="define-section">
     <div class="container">
 
-      <div class="reveal">
-        <h2 class="overview-title">Understanding Our <em>Users</em></h2>
+      <div class="overview-grid">
+        <div class="reveal">
+          <h2 class="overview-title">Understanding Our <em>Users</em></h2>
+        </div>
       </div>
 
       <div class="define-content">
 
         <div class="persona-card reveal reveal-delay-1">
+          <div class="persona-image-slot">
+            Replace this area with Maya's persona image.
+            <!-- Replace this placeholder with: <img src="images/maya.jpg" alt="Maya Chen"> -->
+          </div>
           <div class="persona-header">
             <div class="persona-name">Maya Chen</div>
             <div class="persona-meta">19 • Biology (Pre-Med) • On-campus</div>
@@ -576,6 +862,10 @@ Then link to it from your work cards on index.html
         </div>
 
         <div class="persona-card reveal reveal-delay-2">
+          <div class="persona-image-slot">
+            Replace this area with Jordan's persona image.
+            <!-- Replace this placeholder with: <img src="images/jordan.jpg" alt="Jordan Alvarez"> -->
+          </div>
           <div class="persona-header">
             <div class="persona-name">Jordan Alvarez</div>
             <div class="persona-meta">21 • Communications • Off-campus</div>
@@ -604,13 +894,6 @@ Then link to it from your work cards on index.html
 
       </div>
 
-      <div style="margin-top:60px; padding-top:60px; border-top:1px solid rgba(26,26,18,.12);" class="reveal reveal-delay-1">
-        <h2 class="overview-title" style="color:#1A1A18;">How Might We…</h2>
-        <p style="font-size:1rem; line-height:1.85; color:#5C5248; max-width:600px; margin-top:24px;">
-          Create a low-cost, one-handed carrier that securely connects a drink and food box together without adding friction to the dining experience?
-        </p>
-      </div>
-
     </div>
   </section>
 
@@ -619,7 +902,7 @@ Then link to it from your work cards on index.html
     <div class="container">
 
       <div class="ideation-intro reveal">
-        <h2 class="overview-title">Exploring <em>Solutions</em></h2>
+        <h2 class="overview-title">Exploring Solutions</h2>
         <p style="font-size:.95rem; line-height:1.8; color:#5C5248; max-width:700px; margin-top:20px;">
           We sketched dozens of concepts: rings, straps, clips, nested containers, pivoting handles. The goal was one-handed, secure, simple — and cheap enough that dining halls could mass-produce it.
         </p>
