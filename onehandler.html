@@ -81,9 +81,10 @@ Then link to it from your work cards on index.html
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 0px;
       border: 1px dashed rgba(245,237,214,.35);
       border-radius: 14px;
+      overflow: hidden;
       color: rgba(245,237,214,.55);
       text-align: center;
       font-size: .78rem;
@@ -151,10 +152,10 @@ Then link to it from your work cards on index.html
       align-items: center;
       justify-content: center;
       margin-bottom: 24px;
-      padding: 24px;
-      border: 1px dashed rgba(26,26,18,.22);
-      border-radius: 14px;
-      background: #EDE5CC;
+      /* padding: 24px; */
+      /* border: 1px dashed rgba(26,26,18,.22); */
+      /* border-radius: 14px; */
+      /* background: #EDE5CC; */
       color: #5C5248;
       text-align: center;
       font-size: .78rem;
@@ -164,7 +165,7 @@ Then link to it from your work cards on index.html
     .market-placeholder img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
     }
     .pros-cons {
@@ -201,24 +202,21 @@ Then link to it from your work cards on index.html
     }
     .persona-image-slot {
       width: 100%;
-      aspect-ratio: 4 / 3;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 24px;
-      padding: 20px;
+      /* padding: 20px;
       border: 1px dashed rgba(26,26,18,.22);
       border-radius: 14px;
-      background: #F5EDD6;
-      color: #5C5248;
-      text-align: center;
-      font-size: .78rem;
-      line-height: 1.6;
+      background: #F5EDD6; */
+      box-sizing: border-box;
     }
+
     .persona-image-slot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 40%;
+      height: auto;
+      display: block;
       border-radius: 10px;
     }
     .research-content { max-width: 760px; margin: 0 auto; }
@@ -281,7 +279,7 @@ Then link to it from your work cards on index.html
     .overview-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      line-height: 1.05; margin-bottom: 24px; color: #1A1A18;
+      line-height: 1.05; margin-bottom: 24px; color: #E8732A;
     }
     .overview-body {
       font-size: .92rem; line-height: 1.9; color: #5C5248;
@@ -597,8 +595,7 @@ Then link to it from your work cards on index.html
         
         <div class="project-blurb-col hero-image-column">
           <div class="hero-image-slot">
-            Replace this area with a project image.
-            <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="OneHandler project"> -->
+            <img src="images/OneHander_Images/OneHander Cover Image.png" alt="OneHandler Cover Image">
           </div>
           <div class="project-tag-row scrollable-x">
             <span class="project-tag">Product Design</span>
@@ -645,6 +642,10 @@ Then link to it from your work cards on index.html
               Every day, college students juggle to-go boxes and drinks from the dining hall,
               often spilling items while trying to keep their hands free. It's also a safety issue!
             </p>
+            <br>
+            <div class="solution-placeholder">
+              <img src="images/OneHander_Images/Dropped Foods.png" alt="Spilled matcha, chocolate milk, pasta">
+            </div>
           </div>
 
           <div class="reveal reveal-delay-1">
@@ -662,8 +663,8 @@ Then link to it from your work cards on index.html
                 <span class="detail-val">Current workarounds (stacking, balancing on arms) feel <strong>rushed and unsafe</strong> during peak lunch times.</span>
               </div>
               <div class="detail-row">
-                <span class="detail-key"><em>Opportunity</em></span>
-                <span class="detail-val"><em>A simple connector that keeps food and drink together and secure in one hand.</em></span>
+                <span class="detail-key"><em><strong>Opportunity</strong></em></span>
+                <span class="detail-val"><em><strong>A simple connector that keeps food and drink together and secure in one hand.</strong></em></span>
               </div>
             </div>
           </div>
@@ -678,60 +679,35 @@ Then link to it from your work cards on index.html
 
         <div class="overview-grid">
           <div class="reveal">
-            <h2 class="overview-title">Secondary <em>Research</em></h2>
+            <h2 class="overview-title" style="color: #E8732A;">Secondary <em>Research</em></h2>
           </div>
         </div>
 
         <div class="research-grid">
 
           <div class="research-method reveal reveal-delay-1">
-            <h3 class="research-method-title">Existing Solutions</h3>
-            <div class="solution-placeholder">
-              Replace this area with an image of the existing solution.
-              <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="Existing solution"> -->
-            </div>
-            <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
-              Evaluated existing solutions: cardboard carriers, tote bags, Chinese takeout boxes.
-            </p>
-            <div class="pros-cons">
-              <div class="pros-cons-column">
-                <h4 class="pros-cons-title">Pros</h4>
-                <div class="pros-cons-list">
-                  <!-- Add your own pros here. -->
-                </div>
-              </div>
-              <div class="pros-cons-column">
-                <h4 class="pros-cons-title">Cons</h4>
-                <div class="pros-cons-list">
-                  <div class="research-insight">Carriers hold everything but have uncomfortable handles and create waste.</div>
-                  <div class="research-insight">Tote bags require setup time and don't secure drinks against spills.</div>
-                  <div class="research-insight">Gap: no solution that's quick, one-handed, and doesn't feel like extra work.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <h3 class="research-method-title" style="color: #5C5248;">Existing Solution:</h3>
+            <!-- <h3 class="research-method-title">Bio Tek Kraft Paper To Go Lunch / Drink Carriers. <br> And <br> YBB Kraft Smart Breakfast / Lunch Box</h3> -->
 
-          <div class="research-method reveal reveal-delay-2">
-            <h3 class="research-method-title">Tote Bags</h3>
             <div class="solution-placeholder">
-              Replace this area with an image of the additional solution.
-              <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="Additional existing solution"> -->
+              <img src="images/OneHander_Images/Existing Solutions.png" alt="Bio Tek Kraft Paper To Go Lunch / Drink Carriers & YBB Kraft Smart Breakfast / Lunch Box" style="max-width:auto; max-height:100%;">
             </div>
+            <!-- <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;"></p> -->
             <div class="pros-cons">
               <div class="pros-cons-column">
                 <h4 class="pros-cons-title">Pros</h4>
                 <div class="pros-cons-list">
-                  <div class="research-insight">Reusable for repeated trips.</div>
-                  <div class="research-insight">Can carry multiple items.</div>
-                  <div class="research-insight">Easy to store when not in use.</div>
+                  <div class="research-insight">Holds drinks and a box of food.</div>
+                  <div class="research-insight">One handed.</div>
+                  <div class="research-insight">Can carry multiple items</div>
                 </div>
               </div>
               <div class="pros-cons-column">
                 <h4 class="pros-cons-title">Cons</h4>
                 <div class="pros-cons-list">
-                  <div class="research-insight">Requires setup before carrying items.</div>
-                  <div class="research-insight">Doesn't secure drinks against spills.</div>
-                  <div class="research-insight">Adds friction to the carrying experience.</div>
+                  <div class="research-insight">Uncomfortable handles for long trips.</div>
+                  <div class="research-insight">Require setup time.</div>
+                  <div class="research-insight">Creates waste.</div>
                 </div>
               </div>
             </div>
@@ -740,15 +716,14 @@ Then link to it from your work cards on index.html
           <div class="research-method reveal reveal-delay-2">
             <h3 class="research-method-title">Market Context</h3>
             <div class="market-placeholder">
-              Replace this area with an image showing the market context.
-              <!-- Replace this placeholder with: <img src="images/your-image.jpg" alt="Market context"> -->
+              <img src="images/OneHander_Images/Disposable containers stocks.png" alt="Disposable containers stocks">
             </div>
             <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
               The grab-and-go container market is growing fast.
             </p>
-            <div class="research-insight">Global market projected to grow from $13.9B (2024) to $18.8B by 2034.</div>
+            <div class="research-insight">Global market projected to grow from <strong>$13.9B (2024) to $18.8B by 2034.</strong></div>
             <div class="research-insight">Students represent a high-volume, design-conscious segment of this market.</div>
-            <div class="research-insight">Sustainability matters: students prefer recyclable/compostable materials over plastic.</div>
+            <div class="research-insight"><strong>Sustainability matters</strong>: students prefer recyclable/compostable materials over plastic.</div>
           </div>
 
         </div>
@@ -775,15 +750,22 @@ Then link to it from your work cards on index.html
           <div class="research-method reveal reveal-delay-1">
             <h3 class="research-method-title">Field Observation</h3>
             <p style="font-size:.88rem; color:#5C5248; line-height:1.7; margin-bottom:16px;">
-              Spent time in the dining hall watching how students actually carry food — not how they should.
+              Spent time in the dining hall watching how students actually carry food.
             </p>
-            <div class="research-insight">Students stack containers and use their body or arms for extra support when carrying food.</div>
-            <div class="research-insight">Students use different fingers to hold multiple small items (drink, utensil, snack bar) at once.</div>
-            <div class="research-insight">Navigation becomes a challenge in narrow, crowded pathways when carrying multiple items.</div>
 
-            <div class="sketch-image" style="background:linear-gradient(135deg, #948BAA, #A9AC83); min-height:400px; display:flex; align-items:center; justify-content:center; color:rgba(26,26,18,.3); font-size:3rem;">
-              <img src="images/kimmel.jpg" alt="Kimmel Dining Hall" style="max-width:100%; max-height:100%;">
+            <div class="market-placeholder">
+              <img src="images/OneHander_Images/How Student Hold Things.png" alt="How Students Hold Things">
             </div>
+            
+            <div class="research-insight">Students <strong>stack containers</strong> and use their body or arms for extra support when carrying food.</div>
+            <div class="research-insight">Students <strong>hold two objects on top of each other</strong> using “Lego hands”.</div>
+            
+            <div class="market-placeholder">
+              <img src="images/OneHander_Images/Multi-Finger Hold.png" alt="Multi-Finger Hold">
+            </div>
+
+            <div class="research-insight">Students use <strong>different fingers to hold multiple small items</strong> (drink, utensil, snack bar) at once.</div>
+            <div class="research-insight">Students face challenges with <strong>navigation in narrow, crowded pathways</strong> when carrying multiple items.</div>
           </div>
 
           <div class="research-method reveal reveal-delay-2">
@@ -831,10 +813,10 @@ Then link to it from your work cards on index.html
       <div class="define-content">
 
         <div class="persona-card reveal reveal-delay-1">
-          <div class="persona-image-slot">
-            Replace this area with Maya's persona image.
-            <!-- Replace this placeholder with: <img src="images/maya.jpg" alt="Maya Chen"> -->
+           <div class="persona-image-slot">
+            <img src="images/OneHander_Images/Maya Chen Photo.jpg" alt="Maya Chen">
           </div>
+
           <div class="persona-header">
             <div class="persona-name">Maya Chen</div>
             <div class="persona-meta">19 • Biology (Pre-Med) • On-campus</div>
@@ -863,8 +845,7 @@ Then link to it from your work cards on index.html
 
         <div class="persona-card reveal reveal-delay-2">
           <div class="persona-image-slot">
-            Replace this area with Jordan's persona image.
-            <!-- Replace this placeholder with: <img src="images/jordan.jpg" alt="Jordan Alvarez"> -->
+            <img src="images/OneHander_Images/Jordan Alvarez Photo.avif" alt="Jordan Alvarez">
           </div>
           <div class="persona-header">
             <div class="persona-name">Jordan Alvarez</div>
@@ -904,7 +885,7 @@ Then link to it from your work cards on index.html
       <div class="ideation-intro reveal">
         <h2 class="overview-title">Exploring Solutions</h2>
         <p style="font-size:.95rem; line-height:1.8; color:#5C5248; max-width:700px; margin-top:20px;">
-          We sketched dozens of concepts: rings, straps, clips, nested containers, pivoting handles. The goal was one-handed, secure, simple — and cheap enough that dining halls could mass-produce it.
+          I sketched dozens of concepts: rings, straps, clips, nested containers, pivoting handles. The goal was one-handed, secure, simple — and cheap enough that dining halls could mass-produce it.
         </p>
       </div>
 
@@ -924,22 +905,35 @@ Then link to it from your work cards on index.html
         <div class="sketch-text">
           <h3>Narrowing Down</h3>
           <p>
-            We eliminated ideas that required assembly or added bulk. Three finalists emerged:
+            The purpose of this section is to show how I explored different physical ways to combine a cup and food container before deciding on a final direction.
           </p>
           <p>
-            <strong>1. Cup ring + handle:</strong> A ring integrated into the top of the box that the cup sits in, with a handle formed from a second layer underneath.
-          </p>
+            I used this rough prototype to physically test how the combined container would feel in my hands — including its size, grip, balance, and overall comfort by taping together a regular food container and a cup.
+          </p>  
           <p>
-            <strong>2. Clip system:</strong> Spring clips on the sides of the box grip the cup without modifying the container.
-          <p>
-            <strong>3. Central post:</strong> A pedestal in the center of the box where the cup nests. The post becomes the handle.
-          </p>
-          <p>
-            <strong>Decision:</strong> After investing significant time in the cup ring concept, I realized it wasn't intuitive. I replaced it with a simple hole in the container, resulting in a clearer and more effective design.
+            This hands-on testing helped me narrow down which concepts felt practical and which ones had problems that still needed to be addressed.
           </p>
         </div>
         <div class="sketch-image" style="background:linear-gradient(135deg, #948BAA, #A9AC83); min-height:400px; display:flex; align-items:center; justify-content:center; color:rgba(26,26,18,.3); font-size:3rem;">
-          <img src="images/OneHander Prototype.png" alt="OneHander Prototype" style="max-width:100%; max-height:100%;">
+          <img src="images/OneHander_Images/Narrowing Down Sketches and Prototype.png" alt="Hand-drawn sketches exploring different cup and food container combinations, alongside a taped-together physical prototype being held in-hand" style="max-width:100%; max-height:100%;">
+        </div>
+        <div class="pros-cons">
+          <div class="pros-cons-column">
+            <h4 class="pros-cons-title">Pros</h4>
+            <div class="pros-cons-list">
+              <div class="research-insight">Easy to prototype and test quickly.</div>
+              <div class="research-insight">Helped me understand how the combined container would feel in my hand.</div>
+              <div class="research-insight">Allowed me to compare different shapes and handle configurations.</div>
+            </div>
+          </div>
+          <div class="pros-cons-column">
+            <h4 class="pros-cons-title">Cons</h4>
+            <div class="pros-cons-list">
+              <div class="research-insight">Taped prototype was rough and not representative of the final material.</div>
+              <div class="research-insight">Some combinations felt bulky or uncomfortable to hold.</div>
+              <div class="research-insight">The connection between the cup and food container still needed refinement.</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -955,7 +949,7 @@ Then link to it from your work cards on index.html
       </div>
 
       <p style="font-size:.95rem; line-height:1.8; color:#5C5248; max-width:700px; margin-top:20px;" class="reveal reveal-delay-1">
-        We built a prototype using paper and cardboard to test the concept in real conditions. The design features a recessed ring at the top that the cup sits into, and a handle that extends from a second layer beneath the main box.
+        I built a prototype using paper and cardboard to test the concept in real conditions. The design features a recessed ring at the top that the cup sits into, and a handle that extends from a second layer beneath the main box.
       </p>
 
       <div class="prototype-visual reveal reveal-delay-2" style="max-width:500px; margin:40px auto;">
@@ -969,14 +963,14 @@ Then link to it from your work cards on index.html
         <div>
           <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#1A1A18; margin-bottom:16px; line-height:1.1;">Paper + Cardboard</h3>
           <p style="font-size:.9rem; line-height:1.8; color:#5C5248;">
-            We chose paper for sustainability. It's biodegradable, recyclable, and has a lower carbon footprint than plastic. It also feels more premium to students — less like "disposable packaging" and more like a designed solution.
+            I chose paper for sustainability. It's biodegradable, recyclable, and has a lower carbon footprint than plastic. It also feels more premium to students — less like "disposable packaging" and more like a designed solution.
           </p>
         </div>
 
         <div>
           <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#1A1A18; margin-bottom:16px; line-height:1.1;">Real-World Testing</h3>
           <p style="font-size:.9rem; line-height:1.8; color:#5C5248;">
-            Our next phase is to place the prototype in students' hands during actual meal times. We'll observe how they use it, what breaks first, and whether it solves the problem we identified.
+            Our next phase is to place the prototype in students' hands during actual meal times. I'll observe how they use it, what breaks first, and whether it solves the problem we identified.
           </p>
         </div>
 
